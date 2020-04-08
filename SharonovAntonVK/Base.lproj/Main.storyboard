@@ -138,29 +138,42 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPh-OH-Sjz">
-                                            <rect key="frame" x="130" y="39.5" width="244" height="21"/>
+                                            <rect key="frame" x="130" y="39.5" width="264" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhX-Ip-4oR">
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIl-1a-TDx" customClass="FriendAvatarView" customModule="SharonovAntonVK" customModuleProvider="target">
                                             <rect key="frame" x="20" y="5" width="90" height="90"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhX-Ip-4oR" customClass="FriendAvatar" customModule="SharonovAntonVK" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="90" id="KyX-5O-bxk"/>
+                                                        <constraint firstAttribute="width" constant="90" id="j1K-lU-0WA"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="90" id="2pB-5s-C77"/>
-                                                <constraint firstAttribute="height" constant="90" id="6Hc-R3-3zT"/>
+                                                <constraint firstAttribute="height" constant="90" id="0bz-1g-bR7"/>
+                                                <constraint firstItem="xhX-Ip-4oR" firstAttribute="centerY" secondItem="qIl-1a-TDx" secondAttribute="centerY" id="ZVu-TU-jG0"/>
+                                                <constraint firstItem="xhX-Ip-4oR" firstAttribute="centerX" secondItem="qIl-1a-TDx" secondAttribute="centerX" id="dEK-fq-AGy"/>
+                                                <constraint firstAttribute="width" constant="90" id="zSb-7Q-CbL"/>
                                             </constraints>
-                                        </imageView>
+                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="JPh-OH-Sjz" firstAttribute="centerY" secondItem="Y1c-5T-Aqi" secondAttribute="centerY" id="Sc3-4p-Gnl"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="JPh-OH-Sjz" secondAttribute="trailing" constant="20" id="WgW-Eq-em2"/>
-                                        <constraint firstItem="JPh-OH-Sjz" firstAttribute="leading" secondItem="xhX-Ip-4oR" secondAttribute="trailing" constant="20" id="gdW-E3-wAO"/>
-                                        <constraint firstItem="xhX-Ip-4oR" firstAttribute="leading" secondItem="Y1c-5T-Aqi" secondAttribute="leading" constant="20" id="sc6-1q-DaH"/>
-                                        <constraint firstItem="xhX-Ip-4oR" firstAttribute="centerY" secondItem="Y1c-5T-Aqi" secondAttribute="centerY" id="y4P-Jc-Zf8"/>
+                                        <constraint firstItem="JPh-OH-Sjz" firstAttribute="leading" secondItem="qIl-1a-TDx" secondAttribute="trailing" constant="20" id="8r9-as-kNq"/>
+                                        <constraint firstItem="qIl-1a-TDx" firstAttribute="centerY" secondItem="Y1c-5T-Aqi" secondAttribute="centerY" id="apM-KT-XVf"/>
+                                        <constraint firstAttribute="trailing" secondItem="JPh-OH-Sjz" secondAttribute="trailing" constant="20" id="jKh-96-EEj"/>
+                                        <constraint firstItem="qIl-1a-TDx" firstAttribute="leading" secondItem="Y1c-5T-Aqi" secondAttribute="leading" constant="20" id="qgC-Xv-7TU"/>
+                                        <constraint firstItem="JPh-OH-Sjz" firstAttribute="centerY" secondItem="Y1c-5T-Aqi" secondAttribute="centerY" id="zxM-OE-Krh"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="friendAvatar" destination="xhX-Ip-4oR" id="8ut-jY-TaK"/>
+                                    <outlet property="friendAvatarView" destination="qIl-1a-TDx" id="41y-uu-2j4"/>
                                     <outlet property="friendName" destination="JPh-OH-Sjz" id="5zB-mZ-2Ub"/>
                                     <segue destination="jfv-25-7fS" kind="show" id="PyP-FS-BZn"/>
                                 </connections>
