@@ -4,7 +4,7 @@
 //
 //  Created by mac on 06/04/2020.
 //  Copyright © 2020 AntonSharonov. All rights reserved.
-//  beta
+//
 
 import UIKit
 
