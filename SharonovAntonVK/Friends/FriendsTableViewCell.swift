@@ -16,21 +16,25 @@ class FriendsTableViewCell: UITableViewCell {
 
 final class FriendAvatarView: UIView {
     
-    override func layoutSubviews() {
-     
-        layer.cornerRadius = bounds.height / 2
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        
         layer.borderWidth = 1
         layer.borderColor = UIColor.lightGray.cgColor
         layer.shadowRadius = 3
         layer.shadowOpacity = 0.7
         layer.shadowOffset = CGSize(width: 6, height: 4)
-        
     }
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 2
+    }
 }
 
 final class FriendAvatar: UIImageView {
     override func layoutSubviews() {
+        super.layoutSubviews()
         layer.cornerRadius = bounds.height / 2
     }
 }

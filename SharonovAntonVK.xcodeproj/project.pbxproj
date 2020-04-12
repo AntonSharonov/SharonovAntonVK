@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0458931D243E551B0038952E /* Like.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0458931C243E551B0038952E /* Like.swift */; };
 		04937C4824330E4400739FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04937C4724330E4400739FD8 /* AppDelegate.swift */; };
 		04937C4F24330E4400739FD8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04937C4D24330E4400739FD8 /* Main.storyboard */; };
 		04937C5124330E4700739FD8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04937C5024330E4700739FD8 /* Assets.xcassets */; };
@@ -15,6 +14,7 @@
 		04937C5C24330F8900739FD8 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04937C5B24330F8900739FD8 /* LoginFormViewController.swift */; };
 		04EDE5A1243B38F5005CFDBC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDE5A0243B38F5005CFDBC /* User.swift */; };
 		04EDE5A3243B391A005CFDBC /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04EDE5A2243B391A005CFDBC /* Group.swift */; };
+		04F637DB24436DC2004D066F /* LikeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04F637DA24436DC2004D066F /* LikeButton.swift */; };
 		04FF9B5A2438B81E0098262E /* FriendsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9B592438B81E0098262E /* FriendsTableViewController.swift */; };
 		04FF9B5C2438B8380098262E /* FriendsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9B5B2438B8380098262E /* FriendsTableViewCell.swift */; };
 		04FF9B5E2438C27A0098262E /* MyGroupsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9B5D2438C27A0098262E /* MyGroupsTableViewCell.swift */; };
@@ -26,7 +26,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0458931C243E551B0038952E /* Like.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Like.swift; sourceTree = "<group>"; };
 		04937C4424330E4400739FD8 /* SharonovAntonVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharonovAntonVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04937C4724330E4400739FD8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04937C4E24330E4400739FD8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -36,6 +35,7 @@
 		04937C5B24330F8900739FD8 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
 		04EDE5A0243B38F5005CFDBC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		04EDE5A2243B391A005CFDBC /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		04F637DA24436DC2004D066F /* LikeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeButton.swift; sourceTree = "<group>"; };
 		04FF9B592438B81E0098262E /* FriendsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewController.swift; sourceTree = "<group>"; };
 		04FF9B5B2438B8380098262E /* FriendsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsTableViewCell.swift; sourceTree = "<group>"; };
 		04FF9B5D2438C27A0098262E /* MyGroupsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyGroupsTableViewCell.swift; sourceTree = "<group>"; };
@@ -105,7 +105,7 @@
 				04FF9B5B2438B8380098262E /* FriendsTableViewCell.swift */,
 				04FF9B662438D5640098262E /* FriendsPhotoesCollectionViewController.swift */,
 				04FF9B682438D5970098262E /* FriendsPhotoesCollectionViewCell.swift */,
-				0458931C243E551B0038952E /* Like.swift */,
+				04F637DA24436DC2004D066F /* LikeButton.swift */,
 			);
 			path = Friends;
 			sourceTree = "<group>";
@@ -192,11 +192,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04F637DB24436DC2004D066F /* LikeButton.swift in Sources */,
 				04FF9B5E2438C27A0098262E /* MyGroupsTableViewCell.swift in Sources */,
 				04FF9B642438C2C40098262E /* AllGroupsTableViewController.swift in Sources */,
 				04937C5C24330F8900739FD8 /* LoginFormViewController.swift in Sources */,
 				04EDE5A3243B391A005CFDBC /* Group.swift in Sources */,
-				0458931D243E551B0038952E /* Like.swift in Sources */,
 				04FF9B622438C2AE0098262E /* MyGroupsTableViewController.swift in Sources */,
 				04937C4824330E4400739FD8 /* AppDelegate.swift in Sources */,
 				04FF9B692438D5970098262E /* FriendsPhotoesCollectionViewCell.swift in Sources */,
