@@ -45,7 +45,8 @@ final class FriendsMaker {
             UIImage(named: "kate2")!,
         ])
 
-        return [alex, bob, mark, taylor, mike, kate]
+        let users = [alex, bob, mark, taylor, mike, kate]
+        return users
     }
 }
 

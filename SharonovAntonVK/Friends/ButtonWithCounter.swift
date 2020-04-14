@@ -27,7 +27,7 @@ class ButtonWithCounter: UIControl {
         
         self.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.widthAnchor.constraint(equalToConstant: 80.0),
+            self.widthAnchor.constraint(equalToConstant: 70.0),
             self.heightAnchor.constraint(equalToConstant: 40.0),
         ])
         
@@ -38,7 +38,7 @@ class ButtonWithCounter: UIControl {
         
         labelView.text = "\(count)"
         labelView.textColor = self.staticColor
-        labelView.font = labelView.font.withSize(30.0)
+        labelView.font = labelView.font.withSize(20.0)
         labelView.textAlignment = .center
         
         imageView.isUserInteractionEnabled = false
@@ -49,8 +49,8 @@ class ButtonWithCounter: UIControl {
         NSLayoutConstraint.activate([
             imageView.centerYAnchor.constraint(equalTo: centerYAnchor),
             imageView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),
-            imageView.widthAnchor.constraint(equalToConstant: 40.0),
-            imageView.heightAnchor.constraint(equalToConstant: 40.0),
+            imageView.widthAnchor.constraint(equalToConstant: 30.0),
+            imageView.heightAnchor.constraint(equalToConstant: 30.0),
         ])
         
         addSubview(labelView)
@@ -58,8 +58,8 @@ class ButtonWithCounter: UIControl {
         NSLayoutConstraint.activate([
             labelView.centerYAnchor.constraint(equalTo: centerYAnchor),
             labelView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -5),
-            labelView.widthAnchor.constraint(equalToConstant: 25.0),
-            labelView.heightAnchor.constraint(equalToConstant: 40.0),
+            labelView.widthAnchor.constraint(equalToConstant: 30.0),
+            labelView.heightAnchor.constraint(equalToConstant: 30.0),
         ])
         
         self.addTarget(self, action: #selector(clickOnControl), for: .touchUpInside)

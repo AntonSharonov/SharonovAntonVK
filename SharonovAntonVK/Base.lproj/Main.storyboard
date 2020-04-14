@@ -100,7 +100,7 @@
         <scene sceneID="gN8-Z8-Yhw">
             <objects>
                 <navigationController modalTransitionStyle="crossDissolve" id="jqq-vz-uQl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="person.3.fill" catalog="system" landscapeImage="person.3.fill" largeContentSizeImage="person.3.fill" badgeValue="6" id="hxk-Dg-72N"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.crop.circle" catalog="system" landscapeImage="person.crop.circle" largeContentSizeImage="person.crop.circle" badgeValue="6" selectedImage="person.crop.circle" id="hxk-Dg-72N"/>
                     <navigationItem key="navigationItem" title="nvaigation" prompt="prompt" id="Otc-iq-ojX">
                         <barButtonItem key="backBarButtonItem" title="back to login" id="vrt-as-P9w"/>
                     </navigationItem>
@@ -127,16 +127,24 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="eDj-xb-Ivm">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="fAA-Fy-uLw" id="a9Y-yP-3Q6"/>
+                            </connections>
+                        </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendNameCell" id="pyT-aU-ePl" customClass="FriendsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendNameCell" id="pyT-aU-ePl" customClass="FriendsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pyT-aU-ePl" id="Y1c-5T-Aqi">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPh-OH-Sjz">
-                                            <rect key="frame" x="90" y="19.5" width="304" height="21"/>
+                                            <rect key="frame" x="90" y="19.5" width="273" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -270,9 +278,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="49o-Yn-LK5">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myGroupNameCell" id="Exl-0T-ekY" customClass="MyGroupsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Exl-0T-ekY" id="hAy-eS-ZIL">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -324,6 +337,55 @@
             </objects>
             <point key="canvasLocation" x="2698.5507246376815" y="120.53571428571428"/>
         </scene>
+        <!--News-->
+        <scene sceneID="CEy-JP-lxc">
+            <objects>
+                <tableViewController id="62E-6e-GwU" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="mzj-of-V3d">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" id="cC5-MJ-naV">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cC5-MJ-naV" id="fVT-Qj-KkI">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="62E-6e-GwU" id="pe5-m3-pok"/>
+                            <outlet property="delegate" destination="62E-6e-GwU" id="a7a-6m-U0d"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="News" id="Nrj-vP-npM">
+                        <barButtonItem key="backBarButtonItem" title="News" id="TwN-dp-uvy"/>
+                    </navigationItem>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vXE-o0-m70" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2699" y="817"/>
+        </scene>
+        <!--News-->
+        <scene sceneID="FZG-ih-rUt">
+            <objects>
+                <navigationController id="G2H-35-dAh" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" image="flame" catalog="system" landscapeImage="flame" largeContentSizeImage="flame" selectedImage="flame" id="Bt8-tB-lEY"/>
+                    <navigationItem key="navigationItem" id="PUx-lu-AW2"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R0F-SR-hUl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="62E-6e-GwU" kind="relationship" relationship="rootViewController" id="d3a-jR-TUx"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="VWh-KW-RZF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1928" y="817"/>
+        </scene>
         <!--All Groups Table View Controller-->
         <scene sceneID="tTr-R1-a4O">
             <objects>
@@ -332,9 +394,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" showsCancelButton="YES" id="pff-to-YTL">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="allGroupNameCell" id="SGf-gc-Vfx" customClass="AllGroupsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="84" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="SGf-gc-Vfx" id="D5V-fs-SbF">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -385,7 +452,7 @@
         <scene sceneID="Rrl-Sn-RmY">
             <objects>
                 <navigationController id="cfx-DU-56a" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Groups" image="table.fill" catalog="system" landscapeImage="table.fill" largeContentSizeImage="table.fill" id="xI6-Jk-Yx7"/>
+                    <tabBarItem key="tabBarItem" title="Groups" image="person.3" catalog="system" landscapeImage="person.3" largeContentSizeImage="person.3" selectedImage="person.3" id="xI6-Jk-Yx7"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="oQA-3L-beb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -413,6 +480,7 @@
                     <connections>
                         <segue destination="jqq-vz-uQl" kind="relationship" relationship="viewControllers" id="EaN-J6-uBF"/>
                         <segue destination="cfx-DU-56a" kind="relationship" relationship="viewControllers" id="ATP-MM-NwH"/>
+                        <segue destination="G2H-35-dAh" kind="relationship" relationship="viewControllers" id="2cF-a5-3au"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZp-nc-LLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -422,10 +490,10 @@
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="person.3.fill" catalog="system" width="71" height="34"/>
+        <image name="flame" catalog="system" width="54" height="64"/>
+        <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
         <image name="suit.heart" catalog="system" width="64" height="54"/>
         <image name="suit.heart.fill" catalog="system" width="64" height="54"/>
-        <image name="table.fill" catalog="system" width="64" height="46"/>
     </resources>
 </document>
