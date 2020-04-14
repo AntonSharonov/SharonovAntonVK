@@ -2,7 +2,7 @@
 //  Group.swift
 //  SharonovAntonVK
 //
-//  Created by mac on 06/04/2020.
+//  Created by Anton Sharonov on 06/04/2020.
 //  Copyright © 2020 AntonSharonov. All rights reserved.
 //
 
