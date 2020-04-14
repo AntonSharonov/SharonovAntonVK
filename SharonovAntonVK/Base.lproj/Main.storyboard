@@ -123,41 +123,41 @@
         <scene sceneID="uok-Cf-xWQ">
             <objects>
                 <tableViewController id="fAA-Fy-uLw" customClass="FriendsTableViewController" customModule="SharonovAntonVK" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" sectionHeaderHeight="28" sectionFooterHeight="28" id="z2x-z2-J1j">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="z2x-z2-J1j">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendNameCell" id="pyT-aU-ePl" customClass="FriendsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="100"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pyT-aU-ePl" id="Y1c-5T-Aqi">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="100"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPh-OH-Sjz">
-                                            <rect key="frame" x="130" y="39.5" width="264" height="21"/>
+                                            <rect key="frame" x="90" y="19.5" width="304" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qIl-1a-TDx" customClass="FriendAvatarView" customModule="SharonovAntonVK" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="5" width="90" height="90"/>
+                                            <rect key="frame" x="20" y="5" width="50" height="50"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xhX-Ip-4oR" customClass="FriendAvatar" customModule="SharonovAntonVK" customModuleProvider="target">
-                                                    <rect key="frame" x="0.0" y="0.0" width="90" height="90"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="90" id="KyX-5O-bxk"/>
-                                                        <constraint firstAttribute="width" constant="90" id="j1K-lU-0WA"/>
+                                                        <constraint firstAttribute="height" constant="50" id="KyX-5O-bxk"/>
+                                                        <constraint firstAttribute="width" constant="50" id="j1K-lU-0WA"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="height" constant="90" id="0bz-1g-bR7"/>
+                                                <constraint firstAttribute="height" constant="50" id="0bz-1g-bR7"/>
                                                 <constraint firstItem="xhX-Ip-4oR" firstAttribute="centerY" secondItem="qIl-1a-TDx" secondAttribute="centerY" id="ZVu-TU-jG0"/>
                                                 <constraint firstItem="xhX-Ip-4oR" firstAttribute="centerX" secondItem="qIl-1a-TDx" secondAttribute="centerX" id="dEK-fq-AGy"/>
-                                                <constraint firstAttribute="width" constant="90" id="zSb-7Q-CbL"/>
+                                                <constraint firstAttribute="width" constant="50" id="zSb-7Q-CbL"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -220,53 +220,32 @@
                                                 <constraint firstAttribute="height" constant="375" id="e7c-Nj-jXG"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wlT-kZ-btO" customClass="LikeButton" customModule="SharonovAntonVK" customModuleProvider="target">
-                                            <rect key="frame" x="20" y="375" width="120" height="50"/>
-                                            <subviews>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="heart" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="vBa-wa-Znv">
-                                                    <rect key="frame" x="0.0" y="1.5" width="50" height="47.5"/>
-                                                    <color key="tintColor" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="50" id="kfx-Hu-hc5"/>
-                                                    </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 liked" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lmb-lh-OdJ">
-                                                    <rect key="frame" x="55" y="0.0" width="55" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                            <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="120" id="714-ni-U2P"/>
-                                                <constraint firstAttribute="trailing" secondItem="lmb-lh-OdJ" secondAttribute="trailing" constant="10" id="EgF-8B-nmg"/>
-                                                <constraint firstItem="vBa-wa-Znv" firstAttribute="leading" secondItem="wlT-kZ-btO" secondAttribute="leading" id="KbW-o5-ZRL"/>
-                                                <constraint firstItem="vBa-wa-Znv" firstAttribute="top" secondItem="wlT-kZ-btO" secondAttribute="top" id="O3y-mt-seY"/>
-                                                <constraint firstItem="lmb-lh-OdJ" firstAttribute="leading" secondItem="vBa-wa-Znv" secondAttribute="trailing" constant="5" id="nRh-k3-NeJ"/>
-                                                <constraint firstAttribute="height" constant="50" id="pLr-PA-wT1"/>
-                                                <constraint firstAttribute="bottom" secondItem="lmb-lh-OdJ" secondAttribute="bottom" id="qzc-fU-Ka1"/>
-                                                <constraint firstItem="lmb-lh-OdJ" firstAttribute="top" secondItem="wlT-kZ-btO" secondAttribute="top" id="tAe-sa-ZZE"/>
-                                                <constraint firstAttribute="bottom" secondItem="vBa-wa-Znv" secondAttribute="bottom" id="uY6-ax-KLs"/>
-                                            </constraints>
-                                            <connections>
-                                                <action selector="changeLike" destination="HZU-Ac-76f" eventType="touchUpInside" id="LqJ-tq-xch"/>
-                                            </connections>
+                                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0IX-fm-uX2" customClass="ButtonWithCounter" customModule="SharonovAntonVK" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="374" width="118" height="51"/>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="icon" value="suit.heart" catalog="system"/>
+                                                <userDefinedRuntimeAttribute type="image" keyPath="iconFill" value="suit.heart.fill" catalog="system"/>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="fillColor">
+                                                    <color key="value" systemColor="systemRedColor" red="1" green="0.23137254900000001" blue="0.18823529410000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="color" keyPath="staticColor">
+                                                    <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </userDefinedRuntimeAttribute>
+                                            </userDefinedRuntimeAttributes>
                                         </view>
                                     </subviews>
                                 </view>
                                 <color key="backgroundColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="wlT-kZ-btO" secondAttribute="bottom" id="0Wo-xK-Eza"/>
+                                    <constraint firstItem="0IX-fm-uX2" firstAttribute="leading" secondItem="HZU-Ac-76f" secondAttribute="leading" constant="5" id="44p-0X-oVh"/>
+                                    <constraint firstAttribute="bottom" secondItem="0IX-fm-uX2" secondAttribute="bottom" constant="5" id="Rfc-2A-A2e"/>
                                     <constraint firstItem="gCz-Z7-i1Y" firstAttribute="centerX" secondItem="HZU-Ac-76f" secondAttribute="centerX" id="e6n-z2-pXd"/>
                                     <constraint firstItem="gCz-Z7-i1Y" firstAttribute="top" secondItem="HZU-Ac-76f" secondAttribute="top" id="mMH-mR-ren"/>
-                                    <constraint firstItem="wlT-kZ-btO" firstAttribute="leading" secondItem="HZU-Ac-76f" secondAttribute="leading" constant="20" id="ux6-RT-HEC"/>
                                 </constraints>
                                 <size key="customSize" width="375" height="425"/>
                                 <connections>
                                     <outlet property="friendPhoto" destination="gCz-Z7-i1Y" id="qRO-Co-L9r"/>
-                                    <outlet property="likeCount" destination="lmb-lh-OdJ" id="fnm-5O-IM7"/>
-                                    <outlet property="likeImage" destination="vBa-wa-Znv" id="9CJ-5u-NBw"/>
                                 </connections>
                             </collectionViewCell>
                         </cells>
@@ -443,9 +422,10 @@
     </scenes>
     <resources>
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="heart" catalog="system" width="64" height="54"/>
         <image name="person.3.fill" catalog="system" width="71" height="34"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
+        <image name="suit.heart" catalog="system" width="64" height="54"/>
+        <image name="suit.heart.fill" catalog="system" width="64" height="54"/>
         <image name="table.fill" catalog="system" width="64" height="46"/>
     </resources>
 </document>

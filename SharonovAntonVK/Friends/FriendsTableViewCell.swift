@@ -2,7 +2,7 @@
 //  FriendsTableViewCell.swift
 //  SharonovAntonVK
 //
-//  Created by mac on 04/04/2020.
+//  Created by Anton Sharonov on 04/04/2020.
 //  Copyright © 2020 AntonSharonov. All rights reserved.
 //
 
@@ -21,9 +21,9 @@ final class FriendAvatarView: UIView {
         
         layer.borderWidth = 1
         layer.borderColor = UIColor.lightGray.cgColor
-        layer.shadowRadius = 3
-        layer.shadowOpacity = 0.7
-        layer.shadowOffset = CGSize(width: 6, height: 4)
+        layer.shadowRadius = 1
+        layer.shadowOpacity = 0.5
+        layer.shadowOffset = CGSize(width: 3, height: 3)
     }
     
     override func layoutSubviews() {
