@@ -2,7 +2,7 @@
 //  MyGroupsTableViewController.swift
 //  SharonovAntonVK
 //
-//  Created by mac on 04/04/2020.
+//  Created by Anton Sharonov on 04/04/2020.
 //  Copyright © 2020 AntonSharonov. All rights reserved.
 //
 
@@ -20,7 +20,6 @@ class MyGroupsTableViewController: UITableViewController {
         return myGroups.count
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "myGroupNameCell", for: indexPath) as! MyGroupsTableViewCell
 
