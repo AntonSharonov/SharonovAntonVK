@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		042D0F082448915800145AF7 /* GroupAvatarControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 042D0F072448915800145AF7 /* GroupAvatarControl.swift */; };
 		047BE8E8244756D0005BE481 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE8E7244756D0005BE481 /* NewsTableViewController.swift */; };
 		047BE8EB244757A4005BE481 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE8E9244757A4005BE481 /* NewsTableViewCell.swift */; };
 		04937C4824330E4400739FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04937C4724330E4400739FD8 /* AppDelegate.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		042D0F072448915800145AF7 /* GroupAvatarControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupAvatarControl.swift; sourceTree = "<group>"; };
 		047BE8E7244756D0005BE481 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		047BE8E9244757A4005BE481 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		04937C4424330E4400739FD8 /* SharonovAntonVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharonovAntonVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -112,6 +114,7 @@
 				04BA3C1224481E2900CC2387 /* News.swift */,
 				04EDE5A2243B391A005CFDBC /* Group.swift */,
 				04F637DA24436DC2004D066F /* ButtonWithCounter.swift */,
+				042D0F072448915800145AF7 /* GroupAvatarControl.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +217,7 @@
 				04BA3C1324481E2900CC2387 /* News.swift in Sources */,
 				047BE8EB244757A4005BE481 /* NewsTableViewCell.swift in Sources */,
 				04FF9B642438C2C40098262E /* AllGroupsTableViewController.swift in Sources */,
+				042D0F082448915800145AF7 /* GroupAvatarControl.swift in Sources */,
 				04937C5C24330F8900739FD8 /* LoginFormViewController.swift in Sources */,
 				04EDE5A3243B391A005CFDBC /* Group.swift in Sources */,
 				04FF9B622438C2AE0098262E /* MyGroupsTableViewController.swift in Sources */,

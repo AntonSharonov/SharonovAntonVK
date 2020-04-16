@@ -41,6 +41,7 @@ class AllGroupsTableViewController: UITableViewController {
         
         cell.allGroupName.text = group.title
         cell.allGroupLogo.image = group.logo
+//        cell.allGroupLogoControl.image = group.logo
         
         return cell
     }

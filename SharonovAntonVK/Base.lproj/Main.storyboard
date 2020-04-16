@@ -560,17 +560,28 @@
                                                 <constraint firstAttribute="height" constant="40" id="xk0-oo-dfE"/>
                                             </constraints>
                                         </imageView>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psW-9E-r3n" customClass="GroupAvatarControl" customModule="SharonovAntonVK" customModuleProvider="target">
+                                            <rect key="frame" x="187" y="2" width="40" height="40"/>
+                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="40" id="7un-KH-vwf"/>
+                                                <constraint firstAttribute="height" constant="40" id="Gpq-hh-Ydu"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="psW-9E-r3n" firstAttribute="centerX" secondItem="D5V-fs-SbF" secondAttribute="centerX" id="71J-2P-20p"/>
                                         <constraint firstItem="lQW-Jk-00l" firstAttribute="leading" secondItem="c4M-Sq-O2V" secondAttribute="trailing" constant="20" id="AmX-9O-And"/>
                                         <constraint firstItem="lQW-Jk-00l" firstAttribute="centerY" secondItem="D5V-fs-SbF" secondAttribute="centerY" id="BPR-ei-ARj"/>
                                         <constraint firstItem="c4M-Sq-O2V" firstAttribute="leading" secondItem="D5V-fs-SbF" secondAttribute="leading" constant="20" id="F9Y-6W-YPH"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="lQW-Jk-00l" secondAttribute="trailing" constant="20" id="U2O-LJ-4CY"/>
+                                        <constraint firstItem="psW-9E-r3n" firstAttribute="centerY" secondItem="D5V-fs-SbF" secondAttribute="centerY" id="jzN-Du-0AD"/>
                                         <constraint firstItem="c4M-Sq-O2V" firstAttribute="centerY" secondItem="D5V-fs-SbF" secondAttribute="centerY" id="tth-fC-BeM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="allGroupLogo" destination="c4M-Sq-O2V" id="iQU-UA-1ON"/>
+                                    <outlet property="allGroupLogoControl" destination="psW-9E-r3n" id="rVd-BZ-w0k"/>
                                     <outlet property="allGroupName" destination="lQW-Jk-00l" id="Elz-wC-MYW"/>
                                     <segue destination="MZg-Yh-ddp" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="6XH-vI-kOD"/>
                                 </connections>
@@ -589,7 +600,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F9i-jZ-wRj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="MZg-Yh-ddp" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3445" y="121"/>
+            <point key="canvasLocation" x="3444.9275362318845" y="120.53571428571428"/>
         </scene>
         <!--Groups-->
         <scene sceneID="Rrl-Sn-RmY">

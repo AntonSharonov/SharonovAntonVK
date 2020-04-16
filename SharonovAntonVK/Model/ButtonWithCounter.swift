@@ -74,24 +74,21 @@ class ButtonWithCounter: UIControl {
             animations: {}
         )
         
-            if isFilled == false {
-                isFilled = true
-                count += 1
-                labelView.text = "\(count)"
-                imageView.image = iconFill
-                tintColor = fillColor
-                
-                
- 
-            } else {
-                isFilled = false
-                count -= 1
-                labelView.text = "\(count)"
-                imageView.image = icon
-                tintColor = staticColor
-
-            }
+        if isFilled == false {
+            isFilled = true
+            count += 1
+            labelView.text = "\(count)"
+            imageView.image = iconFill
+            tintColor = fillColor
+        } else {
+            isFilled = false
+            count -= 1
+            labelView.text = "\(count)"
+            imageView.image = icon
+            tintColor = staticColor
+            
         }
+    }
 }
 
 
