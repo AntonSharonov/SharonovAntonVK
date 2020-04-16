@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		047958D32448AC5A0064FC3D /* DotsAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047958D22448AC5A0064FC3D /* DotsAnimation.swift */; };
 		047BE8E8244756D0005BE481 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE8E7244756D0005BE481 /* NewsTableViewController.swift */; };
 		047BE8EB244757A4005BE481 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE8E9244757A4005BE481 /* NewsTableViewCell.swift */; };
 		04937C4824330E4400739FD8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04937C4724330E4400739FD8 /* AppDelegate.swift */; };
@@ -30,7 +29,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		047958D22448AC5A0064FC3D /* DotsAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DotsAnimation.swift; sourceTree = "<group>"; };
 		047BE8E7244756D0005BE481 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		047BE8E9244757A4005BE481 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
 		04937C4424330E4400739FD8 /* SharonovAntonVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SharonovAntonVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -114,7 +112,6 @@
 				04BA3C1224481E2900CC2387 /* News.swift */,
 				04EDE5A2243B391A005CFDBC /* Group.swift */,
 				04F637DA24436DC2004D066F /* ButtonWithCounter.swift */,
-				047958D22448AC5A0064FC3D /* DotsAnimation.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -223,7 +220,6 @@
 				04937C4824330E4400739FD8 /* AppDelegate.swift in Sources */,
 				04FF9B692438D5970098262E /* FriendsPhotoesCollectionViewCell.swift in Sources */,
 				04FF9B5A2438B81E0098262E /* FriendsTableViewController.swift in Sources */,
-				047958D32448AC5A0064FC3D /* DotsAnimation.swift in Sources */,
 				04FF9B672438D5640098262E /* FriendsPhotoesCollectionViewController.swift in Sources */,
 				04FF9B5C2438B8380098262E /* FriendsTableViewCell.swift in Sources */,
 				04FF9B602438C28D0098262E /* AllGroupsTableViewCell.swift in Sources */,
