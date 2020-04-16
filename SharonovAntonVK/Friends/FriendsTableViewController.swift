@@ -10,86 +10,71 @@ import UIKit
 
 class FriendsTableViewController: UITableViewController {
     
-    var friends = FriendsMaker.makeFriends()
+    @IBOutlet weak var friendsSearchBar: UISearchBar!
     
-    var sortedFriends = [String: [User]]() {
-        didSet {
-            friends = sortedFriends.flatMap { $0.value }.sorted { $0.name < $1.name }
-            tableView.reloadData()
-        }
-    }
+    let friends = FriendsMaker.makeFriends()
     
-    var sectionPrefix = [String]()
-    var users = [User]()
-    
-    func sortFriends(with users: [User]) {
-        
-        sortedFriends = Dictionary(grouping: friends, by: { String($0.name.first!) })
-
-        sectionPrefix = [String](sortedFriends.keys)
-        sectionPrefix = sectionPrefix.sorted { $0 < $1 }
-    }
+    var friendSection = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        sortFriends(with: friends)
+        friendsSearchBar.delegate = self
+        sortedFriends(friends: friends)
     }
-
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return friendSection.count
+    }
+    
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friendSection[section].title
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        friends.count
-    }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let friendsCollection = segue.destination as? FriendsPhotoesCollectionViewController {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let friend = friends[indexPath.row]
-                friendsCollection.friendPhoto = friend
-                friendsCollection.title = "\(friend.name)'s photoes"
-            }
-        }
+        return friendSection[section].items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendNameCell", for: indexPath) as! FriendsTableViewCell
+          
+        cell.friendName.text = friendSection[indexPath.section].items[indexPath.row].name
+        cell.friendAvatar.image = friendSection[indexPath.section].items[indexPath.row].avatar
         
-        let friend = friends[indexPath.row]
-        cell.friendName.text = friend.name
-        cell.friendAvatar.image = friend.avatar
-
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let friendsCollection = segue.destination as? FriendsPhotoesCollectionViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                let friend = friendSection[indexPath.section].items[indexPath.row]
+                friendsCollection.friendPhoto = friend
+                friendsCollection.title = "\(friendSection[indexPath.section].items[indexPath.row].name)'s photoes"
+            }
+        }
+    }
+    
+    func sortedFriends(friends: [User]) {
+        let userDictionary = Dictionary.init(grouping: friends) { $0.name.first! }
+        friendSection = userDictionary.map { Section(title: String($0.key), items: $0.value) }
+        friendSection.sort { $0.title < $1.title }
     }
 }
 
 extension FriendsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        guard let searchText = searchBar.text, !searchText.isEmpty else {
-            clearSearch(searchBar)
-            return
+        if searchText.isEmpty {
+            sortedFriends(friends: friends)
+        } else {
+            let filteredUsers = friends.filter({ (friend: User) -> Bool in
+                return friend.name.lowercased().contains(searchText.lowercased())
+            })
+            sortedFriends(friends: filteredUsers)
         }
-        
-        users = friends.filter { $0.name.lowercased().contains(searchText.lowercased()) }
-    }
-    
-    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(true, animated: true)
-    }
-    
-    func searchBarTextDidEndEditing(_ searchBar: UISearchBar) {
-        searchBar.setShowsCancelButton(false, animated: true)
-    }
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        view.endEditing(true)
+        tableView.reloadData()
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        clearSearch(searchBar)
-    }
-    
-    func clearSearch(_ searchBar: UISearchBar) {
-        searchBar.text = nil
-        view.endEditing(true)
-        friends = [User]()
+        sortedFriends(friends: friends)
+        tableView.reloadData()
     }
 }
