@@ -12,9 +12,21 @@ class FriendsTableViewCell: UITableViewCell {
     @IBOutlet weak var friendName: UILabel!
     @IBOutlet weak var friendAvatar: UIImageView!
     @IBOutlet weak var friendAvatarView: UIView!
+    @IBAction func pressOnAvatar() {
+        self.friendAvatarView.transform = CGAffineTransform(scaleX: 0.8, y: 0.8)
+        UIView.animate(
+            withDuration: 1,
+            delay: 0.1,
+            usingSpringWithDamping: 1,
+            initialSpringVelocity: 0,
+            options: [],
+            animations: {
+                self.friendAvatarView.transform = .identity
+        })
+    }
 }
 
-final class FriendAvatarView: UIView {
+final class FriendAvatarView: UIControl {
     
     override func awakeFromNib() {
         super.awakeFromNib()

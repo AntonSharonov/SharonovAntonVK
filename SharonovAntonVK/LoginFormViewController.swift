@@ -14,8 +14,9 @@ class LoginFormViewController: UIViewController {
     @IBOutlet weak var loginTF: UITextField!
     @IBOutlet weak var passwordTF: UITextField!
     @IBOutlet weak var loginIcon: UIImageView!
-
+    
     override func viewDidAppear(_ animated: Bool) {
+        
         UIView.transition(
             with: loginIcon,
             duration: 1.4,
