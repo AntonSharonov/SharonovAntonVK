@@ -16,7 +16,6 @@ class AllGroupsTableViewController: UITableViewController {
     var filteredGroups = [Group]()
     var searching = false
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         allGroupsSearchBar.delegate = self

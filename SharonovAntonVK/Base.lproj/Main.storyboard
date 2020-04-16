@@ -101,7 +101,7 @@
         <scene sceneID="gN8-Z8-Yhw">
             <objects>
                 <navigationController modalTransitionStyle="crossDissolve" id="jqq-vz-uQl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Friends" image="person.crop.circle" catalog="system" landscapeImage="person.crop.circle" largeContentSizeImage="person.crop.circle" badgeValue="6" selectedImage="person.crop.circle" id="hxk-Dg-72N"/>
+                    <tabBarItem key="tabBarItem" title="Friends" image="person.crop.circle" catalog="system" landscapeImage="person.crop.circle" largeContentSizeImage="person.crop.circle" selectedImage="person.crop.circle" id="hxk-Dg-72N"/>
                     <navigationItem key="navigationItem" title="nvaigation" prompt="prompt" id="Otc-iq-ojX">
                         <barButtonItem key="backBarButtonItem" title="back to login" id="vrt-as-P9w"/>
                     </navigationItem>
@@ -282,14 +282,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <searchBar key="tableHeaderView" contentMode="redraw" searchBarStyle="minimal" id="49o-Yn-LK5">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                            <textInputTraits key="textInputTraits"/>
-                        </searchBar>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myGroupNameCell" id="Exl-0T-ekY" customClass="MyGroupsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Exl-0T-ekY" id="hAy-eS-ZIL">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -513,7 +508,7 @@
         <scene sceneID="FZG-ih-rUt">
             <objects>
                 <navigationController id="G2H-35-dAh" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="News" image="flame" catalog="system" landscapeImage="flame" largeContentSizeImage="flame" selectedImage="flame" id="Bt8-tB-lEY"/>
+                    <tabBarItem key="tabBarItem" title="News" image="flame" catalog="system" landscapeImage="flame" largeContentSizeImage="flame" badgeValue="3" selectedImage="flame" id="Bt8-tB-lEY"/>
                     <navigationItem key="navigationItem" id="PUx-lu-AW2"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="R0F-SR-hUl">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
