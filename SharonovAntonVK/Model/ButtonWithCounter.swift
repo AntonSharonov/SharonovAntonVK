@@ -8,7 +8,7 @@
 
 import UIKit
 
-//@IBDesignable не работает
+//@IBDesignable не работает!
 class ButtonWithCounter: UIControl {
     
     @IBInspectable var icon: UIImage?
