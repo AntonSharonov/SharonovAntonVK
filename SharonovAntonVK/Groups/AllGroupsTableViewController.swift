@@ -41,7 +41,7 @@ class AllGroupsTableViewController: UITableViewController {
         
         cell.allGroupName.text = group.title
         cell.allGroupLogo.image = group.logo
-        
+
         return cell
     }
 }

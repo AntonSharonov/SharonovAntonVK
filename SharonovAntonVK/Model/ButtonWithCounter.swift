@@ -8,7 +8,7 @@
 
 import UIKit
 
-//@IBDesignable не работает
+//@IBDesignable не работает!
 class ButtonWithCounter: UIControl {
     
     @IBInspectable var icon: UIImage?
@@ -67,20 +67,28 @@ class ButtonWithCounter: UIControl {
     
     @objc func clickOnControl() {
         
-            if isFilled == false {
-                isFilled = true
-                count += 1
-                labelView.text = "\(count)"
-                imageView.image = iconFill
-                tintColor = fillColor
-            } else {
-                isFilled = false
-                count -= 1
-                labelView.text = "\(count)"
-                imageView.image = icon
-                tintColor = staticColor
-            }
+        UIView.transition(
+            with: imageView,
+            duration: 1.0,
+            options: .transitionFlipFromRight,
+            animations: {}
+        )
+        
+        if isFilled == false {
+            isFilled = true
+            count += 1
+            labelView.text = "\(count)"
+            imageView.image = iconFill
+            tintColor = fillColor
+        } else {
+            isFilled = false
+            count -= 1
+            labelView.text = "\(count)"
+            imageView.image = icon
+            tintColor = staticColor
+            
         }
+    }
 }
 
 
