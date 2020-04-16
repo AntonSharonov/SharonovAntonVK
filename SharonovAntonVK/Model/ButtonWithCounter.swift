@@ -73,7 +73,6 @@ class ButtonWithCounter: UIControl {
             options: .transitionFlipFromRight,
             animations: {}
         )
-        
         if isFilled == false {
             isFilled = true
             count += 1
