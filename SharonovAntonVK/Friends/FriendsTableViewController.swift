@@ -54,7 +54,7 @@ class FriendsTableViewController: UITableViewController {
     }
     
     func sortedFriends(friends: [User]) {
-        let userDictionary = Dictionary.init(grouping: friends) { $0.name.first! }
+        let userDictionary = Dictionary.init(grouping: friends, by: { $0.name.first! })
         friendSection = userDictionary.map { Section(title: String($0.key), items: $0.value) }
         friendSection.sort { $0.title < $1.title }
     }
