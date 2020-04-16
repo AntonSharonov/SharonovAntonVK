@@ -282,38 +282,54 @@
         <scene sceneID="hjr-2k-czc">
             <objects>
                 <tableViewController id="hq2-w3-ExS" customClass="MyGroupsTableViewController" customModule="SharonovAntonVK" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="zkT-qP-dWX">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" sectionHeaderHeight="28" sectionFooterHeight="28" id="zkT-qP-dWX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="myGroupNameCell" id="Exl-0T-ekY" customClass="MyGroupsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="414" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Exl-0T-ekY" id="hAy-eS-ZIL">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wMc-nN-3lH" customClass="UIControl">
+                                            <rect key="frame" x="20" y="5" width="50" height="50"/>
+                                            <subviews>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KnT-er-LO5" customClass="FriendAvatar" customModule="SharonovAntonVK" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="KnT-er-LO5" secondAttribute="height" multiplier="1:1" id="tvv-90-wJc"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstItem="KnT-er-LO5" firstAttribute="centerY" secondItem="wMc-nN-3lH" secondAttribute="centerY" id="2CI-iS-QUb"/>
+                                                <constraint firstAttribute="width" constant="50" id="8eG-Qf-VAE"/>
+                                                <constraint firstItem="KnT-er-LO5" firstAttribute="leading" secondItem="wMc-nN-3lH" secondAttribute="leading" id="AeP-80-O1f"/>
+                                                <constraint firstAttribute="trailing" secondItem="KnT-er-LO5" secondAttribute="trailing" id="kk8-qu-FS9"/>
+                                                <constraint firstItem="KnT-er-LO5" firstAttribute="centerX" secondItem="wMc-nN-3lH" secondAttribute="centerX" id="nRS-WH-imG"/>
+                                                <constraint firstAttribute="height" constant="50" id="pi3-j2-vIG"/>
+                                            </constraints>
+                                            <connections>
+                                                <action selector="pressOnAvatar" destination="Exl-0T-ekY" eventType="touchDown" id="3tn-sI-XIE"/>
+                                            </connections>
+                                        </view>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Group Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cyj-L9-Dxr">
-                                            <rect key="frame" x="80" y="11.5" width="294" height="21"/>
+                                            <rect key="frame" x="90" y="19.5" width="284" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="KnT-er-LO5">
-                                            <rect key="frame" x="20" y="2" width="40" height="40"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="n1C-JB-hl0"/>
-                                                <constraint firstAttribute="height" constant="40" id="oaS-sv-9QV"/>
-                                            </constraints>
-                                        </imageView>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="Cyj-L9-Dxr" firstAttribute="leading" secondItem="wMc-nN-3lH" secondAttribute="trailing" constant="20" id="0a7-7I-0nd"/>
+                                        <constraint firstItem="wMc-nN-3lH" firstAttribute="centerY" secondItem="hAy-eS-ZIL" secondAttribute="centerY" id="cB9-Hu-J6w"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="Cyj-L9-Dxr" secondAttribute="trailing" constant="20" id="hFt-pL-6Se"/>
+                                        <constraint firstItem="wMc-nN-3lH" firstAttribute="leading" secondItem="hAy-eS-ZIL" secondAttribute="leading" constant="20" id="obd-hQ-gUk"/>
                                         <constraint firstItem="Cyj-L9-Dxr" firstAttribute="centerY" secondItem="hAy-eS-ZIL" secondAttribute="centerY" id="ojK-Dj-lps"/>
-                                        <constraint firstItem="KnT-er-LO5" firstAttribute="centerY" secondItem="hAy-eS-ZIL" secondAttribute="centerY" id="pnx-yM-UMi"/>
-                                        <constraint firstItem="KnT-er-LO5" firstAttribute="leading" secondItem="hAy-eS-ZIL" secondAttribute="leading" constant="20" id="yLb-tB-dLw"/>
-                                        <constraint firstItem="Cyj-L9-Dxr" firstAttribute="leading" secondItem="KnT-er-LO5" secondAttribute="trailing" constant="20" id="zar-aD-nzH"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -553,35 +569,24 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c4M-Sq-O2V">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c4M-Sq-O2V" customClass="FriendAvatar" customModule="SharonovAntonVK" customModuleProvider="target">
                                             <rect key="frame" x="20" y="2" width="40" height="40"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="40" id="T5h-ND-XDs"/>
                                                 <constraint firstAttribute="height" constant="40" id="xk0-oo-dfE"/>
                                             </constraints>
                                         </imageView>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="psW-9E-r3n" customClass="GroupAvatarControl" customModule="SharonovAntonVK" customModuleProvider="target">
-                                            <rect key="frame" x="187" y="2" width="40" height="40"/>
-                                            <color key="backgroundColor" systemColor="systemGreenColor" red="0.20392156859999999" green="0.78039215689999997" blue="0.34901960780000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="40" id="7un-KH-vwf"/>
-                                                <constraint firstAttribute="height" constant="40" id="Gpq-hh-Ydu"/>
-                                            </constraints>
-                                        </view>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="psW-9E-r3n" firstAttribute="centerX" secondItem="D5V-fs-SbF" secondAttribute="centerX" id="71J-2P-20p"/>
                                         <constraint firstItem="lQW-Jk-00l" firstAttribute="leading" secondItem="c4M-Sq-O2V" secondAttribute="trailing" constant="20" id="AmX-9O-And"/>
                                         <constraint firstItem="lQW-Jk-00l" firstAttribute="centerY" secondItem="D5V-fs-SbF" secondAttribute="centerY" id="BPR-ei-ARj"/>
                                         <constraint firstItem="c4M-Sq-O2V" firstAttribute="leading" secondItem="D5V-fs-SbF" secondAttribute="leading" constant="20" id="F9Y-6W-YPH"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="lQW-Jk-00l" secondAttribute="trailing" constant="20" id="U2O-LJ-4CY"/>
-                                        <constraint firstItem="psW-9E-r3n" firstAttribute="centerY" secondItem="D5V-fs-SbF" secondAttribute="centerY" id="jzN-Du-0AD"/>
                                         <constraint firstItem="c4M-Sq-O2V" firstAttribute="centerY" secondItem="D5V-fs-SbF" secondAttribute="centerY" id="tth-fC-BeM"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="allGroupLogo" destination="c4M-Sq-O2V" id="iQU-UA-1ON"/>
-                                    <outlet property="allGroupLogoControl" destination="psW-9E-r3n" id="rVd-BZ-w0k"/>
                                     <outlet property="allGroupName" destination="lQW-Jk-00l" id="Elz-wC-MYW"/>
                                     <segue destination="MZg-Yh-ddp" kind="unwind" identifier="addGroup" unwindAction="addGroupWithSegue:" id="6XH-vI-kOD"/>
                                 </connections>

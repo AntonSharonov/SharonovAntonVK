@@ -10,7 +10,7 @@ import UIKit
 
 class MyGroupsTableViewController: UITableViewController {
     
-    var myGroups = [Group]()
+    var myGroups = GroupMaker.makeGroups()
 
     override func viewDidLoad() {
         super.viewDidLoad()
