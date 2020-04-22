@@ -22,6 +22,11 @@ class ButtonWithCounter: UIControl {
     let imageView = UIImageView()
     let labelView = UILabel()
     
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        layer.cornerRadius = bounds.height / 4
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -73,6 +78,7 @@ class ButtonWithCounter: UIControl {
             options: .transitionFlipFromRight,
             animations: {}
         )
+        
         if isFilled == false {
             isFilled = true
             count += 1
@@ -85,7 +91,6 @@ class ButtonWithCounter: UIControl {
             labelView.text = "\(count)"
             imageView.image = icon
             tintColor = staticColor
-            
         }
     }
 }
