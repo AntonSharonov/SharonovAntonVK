@@ -310,7 +310,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7i2-aW-ZCI">
                                 <rect key="frame" x="57" y="298" width="300" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bob2" translatesAutoresizingMaskIntoConstraints="NO" id="FYw-1Y-s4n">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="FYw-1Y-s4n">
                                         <rect key="frame" x="5" y="5" width="290" height="290"/>
                                     </imageView>
                                 </subviews>
@@ -327,7 +327,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5ec-ny-VIb">
                                 <rect key="frame" x="-263" y="298" width="300" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bob1" translatesAutoresizingMaskIntoConstraints="NO" id="bhB-Tr-cqt">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bhB-Tr-cqt">
                                         <rect key="frame" x="5" y="5" width="290" height="290"/>
                                     </imageView>
                                 </subviews>
@@ -344,7 +344,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ee4-K2-HQj">
                                 <rect key="frame" x="377" y="298" width="300" height="300"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bob3" translatesAutoresizingMaskIntoConstraints="NO" id="alm-Ce-QFf">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="alm-Ce-QFf">
                                         <rect key="frame" x="5" y="5" width="290" height="290"/>
                                     </imageView>
                                 </subviews>
@@ -753,9 +753,6 @@
     <resources>
         <image name="arrowshape.turn.up.right" catalog="system" width="64" height="52"/>
         <image name="arrowshape.turn.up.right.fill" catalog="system" width="64" height="52"/>
-        <image name="bob1" width="859" height="859"/>
-        <image name="bob2" width="736" height="736"/>
-        <image name="bob3" width="493" height="493"/>
         <image name="bubble.left" catalog="system" width="64" height="54"/>
         <image name="bubble.left.fill" catalog="system" width="64" height="54"/>
         <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
