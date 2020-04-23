@@ -29,3 +29,13 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
         return cell
     }
 }
+
+extension FriendsPhotoesCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+        
+        let cellWidth = (collectionView.bounds.width - 14) / 2
+        return CGSize(width: cellWidth, height: cellWidth)
+    }
+}
