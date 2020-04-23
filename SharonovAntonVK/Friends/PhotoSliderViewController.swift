@@ -16,9 +16,6 @@ enum PanGestureDirection {
 
 class PhotoSliderViewController: UIViewController {
     
-    //    var swipeToLeft = UIViewPropertyAnimator()
-    //    var swipeToRight = UIViewPropertyAnimator()
-    
     @IBOutlet weak var leftImageView: UIImageView!
     @IBOutlet weak var middleImageView: UIImageView!
     @IBOutlet weak var rightImageView: UIImageView!
@@ -27,7 +24,8 @@ class PhotoSliderViewController: UIViewController {
     var currentPhotoIndex = 0
     var currentPanGestureDirection: PanGestureDirection = .none
     
-        let scaleTo90Percent = CGAffineTransform(scaleX: 0.9, y: 0.9)
+    let scaleTo90Percent = CGAffineTransform(scaleX: 0.9, y: 0.9)
+    let scaleTo110Percent = CGAffineTransform(scaleX: 1.1, y: 1.1)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +33,6 @@ class PhotoSliderViewController: UIViewController {
         let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         view.addGestureRecognizer(panGestureRec)
         setImages()
-        animateImages()
     }
     
     func setImages() {
@@ -46,160 +43,68 @@ class PhotoSliderViewController: UIViewController {
         if leftPhotoIndex < 0 { leftPhotoIndex = photos.count - 1 }
         if rightPhotoIndex > photos.count - 1 { rightPhotoIndex = 0 }
         
-        
-        
         leftImageView.image = UIImage(named: photos[leftPhotoIndex])
         middleImageView.image = UIImage(named: photos[middlePhotoIndex])
         rightImageView.image = UIImage(named: photos[rightPhotoIndex])
     }
     
-    
-    func animateImages() {
-            self.middleImageView.transform = scaleTo90Percent
-            self.rightImageView.transform = scaleTo90Percent
-            self.leftImageView.transform = scaleTo90Percent
-    
-            UIView.animate(
-                withDuration: 1,
-                delay: 0,
-                animations: {
-                    self.middleImageView.transform = .identity
-                    self.rightImageView.transform = .identity
-                    self.leftImageView.transform = .identity
-            })
-    }
-    
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer){
         switch recognizer.state {
-        case .began: setImages()
-           
-          
-            //            swipeToRight = UIViewPropertyAnimator(
-            //                duration: 0.5,
-            //                curve: .easeInOut,
-            //                animations: {
-            //                    UIView.animate(
-            //                        withDuration: 0.01,
-            //                        delay: 0,
-            //                        animations: {
-            //                            let translation = CGAffineTransform(translationX: self.view.bounds.midX, y: 0)
-            //                            let transform = self.scaleTo90Percent.concatenating(translation)
-            //                            self.middleImageView.transform = transform
-            //                            self.rightImageView.transform = transform
-            //                            self.leftImageView.transform = transform
-            //                    }, completion: { _ in
-            //                        self.currentPhoto -= 1
-            //                        if self.currentPhoto < 0 {
-            //                            self.currentPhoto = self.photos.count - 1
-            //                        }
-            //                      self.setImages()
-            //                    })
-            //            })
-            //            swipeToLeft = UIViewPropertyAnimator(
-            //                duration: 0.5,
-            //                curve: .easeInOut,
-            //                animations: {
-            //                    UIView.animate(
-            //                        withDuration: 0.01,
-            //                        delay: 0,
-            //                        animations: {
-            //                            let translation = CGAffineTransform(translationX: -self.view.bounds.midX, y: 0)
-            //                            let transform = self.scaleTo90Percent.concatenating(translation)
-            //                            self.middleImageView.transform = transform
-            //                            self.rightImageView.transform = transform
-            //                            self.leftImageView.transform = transform
-            //                    }, completion: { _ in
-            //                        self.currentPhoto += 1
-            //                        if self.currentPhoto > self.photos.count - 1 {
-            //                            self.currentPhoto = 0
-            //                        }
-            //                     self.setImages()
-            //                    })
-        //            })
+            
+        case .began:
+            UIView.animate(withDuration: 0.3, animations: { self.middleImageView.alpha = 0.6 })
+            
         case .changed:
-                   self.middleImageView.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-                      self.rightImageView.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-                      self.leftImageView.transform = CGAffineTransform(scaleX: 0.99, y: 0.99)
-              
-                      UIView.animate(
-                        withDuration: 1,
-                          delay: 0,
-                          animations: {
-                              self.middleImageView.transform = .identity
-                              self.rightImageView.transform = .identity
-                              self.leftImageView.transform = .identity
-                      })
-                   
-                   
-                   
             let translationX = recognizer.translation(in: middleImageView).x
-            print(translationX)
-            print(currentPhotoIndex)
             currentPanGestureDirection = translationX > 0 ? .right : .left
             
-            
-            //            if translationX > 0 {
-            //                     swipeToRight.fractionComplete = translationX/view.bounds.width
-            
-            
-            
-            //                currentPhotoIndex -= 1
-            
-            //                print(currentPhotoIndex)
-            
-            
-            
-            
-            
-            
-            
-            //                      if self.currentPhotoIndex < 0 {
-            //                          self.currentPhotoIndex = self.photos.count - 1
-            //                      } else {
-            //                        self.currentPhotoIndex -= 1
-            //                }
-            //            } else {
-            
-            //                currentPhotoIndex += 1
-            
-            //                     print(currentPhotoIndex)
-            
-            
-            
-            //                swipeToLeft.fractionComplete = translationX/view.bounds.width
-            
-            //                           if self.currentPhotoIndex > self.photos.count - 1 {
-            //                               self.currentPhotoIndex = 0
-            //                           } else {
-            //                            self.currentPhotoIndex += 1
-            //                }
-            //            }
+            UIView.animate(
+                withDuration: 0.3,
+                animations: {
+                    
+                    self.middleImageView
+                        .transform = CGAffineTransform(translationX: translationX, y: 0)
+                            .concatenating(self.scaleTo90Percent)
+                    
+                    if self.currentPanGestureDirection == .left {
+                        
+                        self.rightImageView
+                            .transform = CGAffineTransform(translationX: translationX, y: 0)
+                                .concatenating(self.scaleTo110Percent)
+                        self.leftImageView
+                            .transform = CGAffineTransform(translationX: translationX, y: 0)
+                                .concatenating(self.scaleTo110Percent)
+                        
+                    } else {
+                        
+                        self.rightImageView
+                            .transform = CGAffineTransform(translationX: translationX, y: 0)
+                                .concatenating(self.scaleTo110Percent)
+                        self.leftImageView
+                            .transform = CGAffineTransform(translationX: translationX, y: 0)
+                                .concatenating(self.scaleTo110Percent)
+                    }
+            })
             
         case .ended:
-            
-            
-             
             if currentPanGestureDirection == .left {
                 currentPhotoIndex += 1
-                
                 if currentPhotoIndex > photos.count - 1 { currentPhotoIndex = 0 }
                 
-                print(currentPhotoIndex)
             } else {
                 currentPhotoIndex -= 1
-                
                 if currentPhotoIndex < 0 { currentPhotoIndex = photos.count - 1 }
-                
-                print(currentPhotoIndex)
             }
             
+            middleImageView.alpha = 1
+            middleImageView.transform = .identity
+            leftImageView.transform = .identity
+            rightImageView.transform = .identity
+                        
             setImages()
             
+        default: return
             
-            //           swipeToRight.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-        //          swipeToLeft.continueAnimation(withTimingParameters: nil, durationFactor: 0)
-        default:
-            return
         }
     }
 }
