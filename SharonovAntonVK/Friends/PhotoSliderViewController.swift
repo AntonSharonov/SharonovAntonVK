@@ -103,7 +103,8 @@ class PhotoSliderViewController: UIViewController {
                         
             setImages()
             
-        default: return
+        default:
+            return
             
         }
     }
