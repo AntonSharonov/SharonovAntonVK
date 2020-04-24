@@ -11,6 +11,7 @@ import UIKit
 class FriendsPhotoesCollectionViewController: UICollectionViewController {
     
     var friendPhoto: User!
+    var selectedPhotoIndex = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,18 +25,38 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendPhotoCell", for: indexPath) as! FriendsPhotoesCollectionViewCell
         
         let photo = friendPhoto.photoes[indexPath.row]
-        cell.friendPhoto.image = photo
+        cell.friendPhotoInCell.image = photo
         
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedPhotoIndex = indexPath.item
+        print("а потом здесь \(selectedPhotoIndex)")
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let photoSliderViewController = segue.destination as? PhotoSliderViewController {
+            
+            let selectedFriend = friendPhoto.photoes
+            photoSliderViewController.photos = selectedFriend
+            
+            photoSliderViewController.currentPhotoIndex = selectedPhotoIndex
+            
+            print("сначала \(photoSliderViewController.currentPhotoIndex)")
+            print("срабатывает здесь \(selectedPhotoIndex)")
+        }
     }
 }
 
 extension FriendsPhotoesCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        referenceSizeForHeaderInSection section: Int) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let cellWidth = (collectionView.bounds.width - 14) / 2
+        let numberOfCellsInLine: CGFloat = 2
+        let cellSpacing: CGFloat = 5
+        
+        let cellWidth = floor((collectionView.bounds.width - cellSpacing * (numberOfCellsInLine + 1)) / numberOfCellsInLine)
+        
         return CGSize(width: cellWidth, height: cellWidth)
     }
 }
