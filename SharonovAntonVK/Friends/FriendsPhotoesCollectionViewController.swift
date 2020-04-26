@@ -13,8 +13,17 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
     var friendPhoto: User!
     var selectedPhotoIndex = 0
     
+    var friendCollection: FriendsTableViewController!
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("коллекция: viewWillDisappear: selectedPhotoIndex = \(selectedPhotoIndex) - здесь сидит нужный индекс\n")
+        
+     }
+  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        print("................. 1 экран - viewDidLoad .................")
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -32,19 +41,30 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedPhotoIndex = indexPath.item
-        print("а потом здесь \(selectedPhotoIndex)")
+//        let ggg = PhotoSliderViewController()
+//        let uuu = ggg.currentPhotoIndex
+        
+        print("коллекшнвью didSelectItemAt: selectedPhotoIndex = \(selectedPhotoIndex) - нужный индекс выбранной ячейки\n")
+        
+      
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let photoSliderViewController = segue.destination as? PhotoSliderViewController {
-            
+
             let selectedFriend = friendPhoto.photoes
-            photoSliderViewController.photos = selectedFriend
-            
+                  photoSliderViewController.photos = selectedFriend
+
+//            collectionView(<#T##collectionView: UICollectionView##UICollectionView#>, didDeselectItemAt: )
+//             print("сначала индекс текущего фото, берется со слайдера \(photoSliderViewController.currentPhotoIndex) и присваиваем ему индекс выбранного фото по умолчанию \(selectedPhotoIndex)")
+//
             photoSliderViewController.currentPhotoIndex = selectedPhotoIndex
-            
-            print("сначала \(photoSliderViewController.currentPhotoIndex)")
-            print("срабатывает здесь \(selectedPhotoIndex)")
+//
+
+            print("prepare фор сегвей: selectedPhotoIndex = \(selectedPhotoIndex) и currentPhotoIndex = \(photoSliderViewController.currentPhotoIndex) - по умолчанию\n")
+
+
+
         }
     }
 }
