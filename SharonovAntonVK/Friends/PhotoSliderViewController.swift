@@ -21,35 +21,18 @@ class PhotoSliderViewController: UIViewController {
     @IBOutlet weak var rightImageView: UIImageView!
     
     var photos: [UIImage] = []
-    var currentPhotoIndex = 1
+    var currentPhotoIndex = 0
     var currentPanGestureDirection: PanGestureDirection = .none
     
     let scaleTo90Percent = CGAffineTransform(scaleX: 0.9, y: 0.9)
     let scaleTo110Percent = CGAffineTransform(scaleX: 1.1, y: 1.1)
     
-    override func viewWillAppear(_ animated: Bool) {
-        
-        let fff = FriendsPhotoesCollectionViewController()
-        let aaa = fff.selectedPhotoIndex
-        print("aaa = \(aaa) - почему значение по умолчанию а не нужное???\n")
-        currentPhotoIndex = aaa
-        print("слайдер viewWillAppear currentPhotoIndex = \(currentPhotoIndex) - сюда нужно передать нужный индекс\n")
-        
-        setImages()
-    }
-    
- 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        print("................. 2 экран - viewDidLoad .................")
-//        print("   слайдер текущий индекс на слайдере во вьюдидлоад каррентфотоиндекс = \(currentPhotoIndex) - по умолчанию\n")
-        
+
+        setImages()
         let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         view.addGestureRecognizer(panGestureRec)
-        
-        
     }
     
     func setImages() {
