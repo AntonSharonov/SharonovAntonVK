@@ -38,7 +38,7 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
             let friendsPhotoesCollectionViewController = segue.source as! FriendsPhotoesCollectionViewController
             if let indexPath = friendsPhotoesCollectionViewController.collectionView.indexPathsForSelectedItems {
                 
-                let selectedPhotoIndex = indexPath[0][1]
+                let selectedPhotoIndex = indexPath.first!.row
                 photoSliderViewController.currentPhotoIndex = selectedPhotoIndex
             }
         }
