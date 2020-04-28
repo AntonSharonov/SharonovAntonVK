@@ -71,7 +71,7 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
-                                                    <segue destination="DNG-gk-jxk" kind="presentation" identifier="loginSegue" id="OsJ-tJ-IZ4"/>
+                                                    <segue destination="3Ql-5G-Lm9" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="i45-f6-YiX"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -115,7 +115,59 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="131.8840579710145" y="120.53571428571428"/>
+            <point key="canvasLocation" x="-990" y="121"/>
+        </scene>
+        <!--After Login View Controller-->
+        <scene sceneID="u0d-MS-3UO">
+            <objects>
+                <viewController id="3Ql-5G-Lm9" customClass="AfterLoginViewController" customModule="SharonovAntonVK" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YhP-pB-sr3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="1gm-59-chT">
+                                <rect key="frame" x="112.5" y="400" width="189" height="96"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Yh-ux-bng">
+                                        <rect key="frame" x="0.0" y="0.0" width="189" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <state key="normal" title="&lt;- BACK">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEl-gG-OZV">
+                                        <rect key="frame" x="0.0" y="48" width="189" height="48"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <state key="normal" title="FORWARD -&gt;">
+                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <segue destination="DNG-gk-jxk" kind="presentation" modalPresentationStyle="fullScreen" modalTransitionStyle="flipHorizontal" id="C4S-9K-GQr"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TEST SCREEN" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yqq-Wg-IIx">
+                                <rect key="frame" x="152" y="94" width="110" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemPinkColor" red="1" green="0.1764705882" blue="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="yqq-Wg-IIx" firstAttribute="top" secondItem="9EE-CZ-92v" secondAttribute="top" constant="50" id="1Vg-7g-ERp"/>
+                            <constraint firstItem="1gm-59-chT" firstAttribute="centerX" secondItem="YhP-pB-sr3" secondAttribute="centerX" id="Qnu-J1-kvp"/>
+                            <constraint firstItem="yqq-Wg-IIx" firstAttribute="centerX" secondItem="YhP-pB-sr3" secondAttribute="centerX" id="w4z-8l-GzZ"/>
+                            <constraint firstItem="1gm-59-chT" firstAttribute="centerY" secondItem="YhP-pB-sr3" secondAttribute="centerY" id="wdQ-WM-PV0"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="9EE-CZ-92v"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Aux-fO-nxq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zPY-Fj-OMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-52" y="121"/>
         </scene>
         <!--nvaigation-->
         <scene sceneID="gN8-Z8-Yhw">

@@ -94,4 +94,11 @@ class LoginFormViewController: UIViewController {
         scrollBottomConstraint.constant = 0
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        segue.destination.transitioningDelegate = self
+    }
+}
+
+extension LoginFormViewController: UIViewControllerTransitioningDelegate {
+    
 }
