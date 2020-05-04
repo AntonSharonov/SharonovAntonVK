@@ -134,6 +134,9 @@
                                         <state key="normal" title="&lt;- BACK">
                                             <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="close" destination="3Ql-5G-Lm9" eventType="touchUpInside" id="Tyc-bx-8E9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DEl-gG-OZV">
                                         <rect key="frame" x="0.0" y="48" width="189" height="48"/>
