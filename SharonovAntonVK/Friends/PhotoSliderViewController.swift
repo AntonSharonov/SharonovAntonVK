@@ -20,7 +20,7 @@ class PhotoSliderViewController: UIViewController {
     @IBOutlet weak var middleImageView: UIImageView!
     @IBOutlet weak var rightImageView: UIImageView!
     
-    var photos: [String] = ["alex1", "alex2", "bob1", "bob2", "alex3"]
+    var photos: [UIImage] = []
     var currentPhotoIndex = 0
     var currentPanGestureDirection: PanGestureDirection = .none
     
@@ -29,10 +29,10 @@ class PhotoSliderViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setImages()
         let panGestureRec = UIPanGestureRecognizer(target: self, action: #selector(panGesture))
         view.addGestureRecognizer(panGestureRec)
-        setImages()
     }
     
     func setImages() {
@@ -43,9 +43,9 @@ class PhotoSliderViewController: UIViewController {
         if leftPhotoIndex < 0 { leftPhotoIndex = photos.count - 1 }
         if rightPhotoIndex > photos.count - 1 { rightPhotoIndex = 0 }
         
-        leftImageView.image = UIImage(named: photos[leftPhotoIndex])
-        middleImageView.image = UIImage(named: photos[middlePhotoIndex])
-        rightImageView.image = UIImage(named: photos[rightPhotoIndex])
+        leftImageView.image = photos[leftPhotoIndex]
+        middleImageView.image = photos[middlePhotoIndex]
+        rightImageView.image = photos[rightPhotoIndex]
     }
     
     @objc func panGesture(_ recognizer: UIPanGestureRecognizer){
@@ -65,25 +65,12 @@ class PhotoSliderViewController: UIViewController {
                     self.middleImageView
                         .transform = CGAffineTransform(translationX: translationX, y: 0)
                             .concatenating(self.scaleTo90Percent)
-                    
-                    if self.currentPanGestureDirection == .left {
-                        
-                        self.rightImageView
-                            .transform = CGAffineTransform(translationX: translationX, y: 0)
-                                .concatenating(self.scaleTo110Percent)
-                        self.leftImageView
-                            .transform = CGAffineTransform(translationX: translationX, y: 0)
-                                .concatenating(self.scaleTo110Percent)
-                        
-                    } else {
-                        
-                        self.rightImageView
-                            .transform = CGAffineTransform(translationX: translationX, y: 0)
-                                .concatenating(self.scaleTo110Percent)
-                        self.leftImageView
-                            .transform = CGAffineTransform(translationX: translationX, y: 0)
-                                .concatenating(self.scaleTo110Percent)
-                    }
+                    self.rightImageView
+                        .transform = CGAffineTransform(translationX: translationX, y: 0)
+                            .concatenating(self.scaleTo110Percent)
+                    self.leftImageView
+                        .transform = CGAffineTransform(translationX: translationX, y: 0)
+                            .concatenating(self.scaleTo110Percent)
             })
             
         case .ended:
@@ -97,13 +84,15 @@ class PhotoSliderViewController: UIViewController {
             }
             
             middleImageView.alpha = 1
+            
             middleImageView.transform = .identity
             leftImageView.transform = .identity
             rightImageView.transform = .identity
                         
             setImages()
             
-        default: return
+        default:
+            return
             
         }
     }

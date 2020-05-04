@@ -78,3 +78,24 @@ extension FriendsTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
 }
+
+//extension FriendsTableViewController: UIViewControllerTransitioningDelegate {
+//
+//    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        ScreenTransitionAnimation()
+//    }
+//
+//
+//    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
+//        ScreenTransitionAnimation()
+//    }
+//}
+//
+//final class ScreenTransitionAnimation: NSObject, UIViewControllerInteractiveTransitioning {
+//
+//    func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
+//        nil
+//    }
+//
+//}
+

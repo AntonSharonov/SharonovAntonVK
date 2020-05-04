@@ -24,8 +24,35 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendPhotoCell", for: indexPath) as! FriendsPhotoesCollectionViewCell
         
         let photo = friendPhoto.photoes[indexPath.row]
-        cell.friendPhoto.image = photo
+        cell.friendPhotoInCell.image = photo
         
         return cell
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let photoSliderViewController = segue.destination as? PhotoSliderViewController {
+            
+            let selectedFriend = friendPhoto.photoes
+            photoSliderViewController.photos = selectedFriend
+            
+            let friendsPhotoesCollectionViewController = segue.source as! FriendsPhotoesCollectionViewController
+            if let indexPath = friendsPhotoesCollectionViewController.collectionView.indexPathsForSelectedItems {
+                
+                let selectedPhotoIndex = indexPath.first!.row
+                photoSliderViewController.currentPhotoIndex = selectedPhotoIndex
+            }
+        }
+    }
+}
+
+extension FriendsPhotoesCollectionViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let numberOfCellsInLine: CGFloat = 2
+        let cellSpacing: CGFloat = 5
+        
+        let cellWidth = floor((collectionView.bounds.width - cellSpacing * (numberOfCellsInLine + 1)) / numberOfCellsInLine)
+        
+        return CGSize(width: cellWidth, height: cellWidth)
     }
 }
