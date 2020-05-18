@@ -12,4 +12,5 @@ class VKRequests {
     
     let methodUrl = "https://api.vk.com/method"
     var token = Session.instance.token
+    
 }
