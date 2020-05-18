@@ -29,6 +29,7 @@
 		04FF9B642438C2C40098262E /* AllGroupsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9B632438C2C40098262E /* AllGroupsTableViewController.swift */; };
 		04FF9B672438D5640098262E /* FriendsPhotoesCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9B662438D5640098262E /* FriendsPhotoesCollectionViewController.swift */; };
 		04FF9B692438D5970098262E /* FriendsPhotoesCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04FF9B682438D5970098262E /* FriendsPhotoesCollectionViewCell.swift */; };
+		4C07A5081E4EDBD27D8E97F4 /* Pods_SharonovAntonVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED2D9E3B6CA369D9DD72D3CE /* Pods_SharonovAntonVK.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,9 @@
 		04FF9B632438C2C40098262E /* AllGroupsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllGroupsTableViewController.swift; sourceTree = "<group>"; };
 		04FF9B662438D5640098262E /* FriendsPhotoesCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoesCollectionViewController.swift; sourceTree = "<group>"; };
 		04FF9B682438D5970098262E /* FriendsPhotoesCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsPhotoesCollectionViewCell.swift; sourceTree = "<group>"; };
+		710221D5E9670788475BCC9B /* Pods-SharonovAntonVK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharonovAntonVK.debug.xcconfig"; path = "Target Support Files/Pods-SharonovAntonVK/Pods-SharonovAntonVK.debug.xcconfig"; sourceTree = "<group>"; };
+		ED2D9E3B6CA369D9DD72D3CE /* Pods_SharonovAntonVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SharonovAntonVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FFD3C0F72586A6F18D6F8377 /* Pods-SharonovAntonVK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SharonovAntonVK.release.xcconfig"; path = "Target Support Files/Pods-SharonovAntonVK/Pods-SharonovAntonVK.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4C07A5081E4EDBD27D8E97F4 /* Pods_SharonovAntonVK.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +88,8 @@
 			children = (
 				04937C4624330E4400739FD8 /* SharonovAntonVK */,
 				04937C4524330E4400739FD8 /* Products */,
+				69B87F51E3E9BE9595BD4209 /* Pods */,
+				46AB222BB77D5F05F2AE96E6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -147,6 +154,24 @@
 			path = Groups;
 			sourceTree = "<group>";
 		};
+		46AB222BB77D5F05F2AE96E6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED2D9E3B6CA369D9DD72D3CE /* Pods_SharonovAntonVK.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		69B87F51E3E9BE9595BD4209 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				710221D5E9670788475BCC9B /* Pods-SharonovAntonVK.debug.xcconfig */,
+				FFD3C0F72586A6F18D6F8377 /* Pods-SharonovAntonVK.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -154,9 +179,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 04937C5824330E4700739FD8 /* Build configuration list for PBXNativeTarget "SharonovAntonVK" */;
 			buildPhases = (
+				13CB72D48F229E620309CE27 /* [CP] Check Pods Manifest.lock */,
 				04937C4024330E4400739FD8 /* Sources */,
 				04937C4124330E4400739FD8 /* Frameworks */,
 				04937C4224330E4400739FD8 /* Resources */,
+				C4285FADE7700A4E8EC44700 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -212,6 +239,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		13CB72D48F229E620309CE27 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SharonovAntonVK-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C4285FADE7700A4E8EC44700 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharonovAntonVK/Pods-SharonovAntonVK-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SharonovAntonVK/Pods-SharonovAntonVK-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SharonovAntonVK/Pods-SharonovAntonVK-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		04937C4024330E4400739FD8 /* Sources */ = {
@@ -378,6 +447,7 @@
 		};
 		04937C5924330E4700739FD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 710221D5E9670788475BCC9B /* Pods-SharonovAntonVK.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -396,6 +466,7 @@
 		};
 		04937C5A24330E4700739FD8 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FFD3C0F72586A6F18D6F8377 /* Pods-SharonovAntonVK.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;

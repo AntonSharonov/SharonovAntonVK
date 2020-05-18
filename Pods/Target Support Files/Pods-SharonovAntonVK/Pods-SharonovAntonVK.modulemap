@@ -1,0 +1,6 @@
+framework module Pods_SharonovAntonVK {
+  umbrella header "Pods-SharonovAntonVK-umbrella.h"
+
+  export *
+  module * { export * }
+}
