@@ -16,7 +16,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4pN-b2-wTT">
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U0X-xW-I7G">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <wkWebViewConfiguration key="configuration">
@@ -27,16 +27,16 @@
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
-                            <constraint firstItem="4pN-b2-wTT" firstAttribute="leading" secondItem="3mP-D5-YbK" secondAttribute="leading" id="A0I-bP-0np"/>
-                            <constraint firstItem="3mP-D5-YbK" firstAttribute="trailing" secondItem="4pN-b2-wTT" secondAttribute="trailing" id="BpM-t0-9kV"/>
-                            <constraint firstItem="3mP-D5-YbK" firstAttribute="bottom" secondItem="4pN-b2-wTT" secondAttribute="bottom" id="C2a-Sc-fxa"/>
-                            <constraint firstItem="4pN-b2-wTT" firstAttribute="top" secondItem="3mP-D5-YbK" secondAttribute="top" id="kRT-mH-BYg"/>
+                            <constraint firstItem="U0X-xW-I7G" firstAttribute="leading" secondItem="3mP-D5-YbK" secondAttribute="leading" id="3QQ-bo-cZ8"/>
+                            <constraint firstItem="3mP-D5-YbK" firstAttribute="bottom" secondItem="U0X-xW-I7G" secondAttribute="bottom" id="cdC-IB-DhA"/>
+                            <constraint firstItem="U0X-xW-I7G" firstAttribute="top" secondItem="3mP-D5-YbK" secondAttribute="top" id="eOY-eC-en4"/>
+                            <constraint firstItem="3mP-D5-YbK" firstAttribute="trailing" secondItem="U0X-xW-I7G" secondAttribute="trailing" id="x2W-XO-qOI"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3mP-D5-YbK"/>
                     </view>
                     <connections>
-                        <outlet property="WKWebView" destination="4pN-b2-wTT" id="OPx-5b-NAS"/>
-                        <outlet property="webView" destination="4pN-b2-wTT" id="cYN-sN-SUE"/>
+                        <outlet property="wkWebView" destination="U0X-xW-I7G" id="d7Y-8f-jKj"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="fromWebToLoginSegue" modalPresentationStyle="fullScreen" id="b6F-tF-Vrj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9So-bo-5qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

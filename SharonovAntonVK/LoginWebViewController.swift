@@ -11,10 +11,9 @@ import WebKit
 
 class LoginWebViewController: UIViewController {
     
-    @IBOutlet weak var webView: WKWebView!
-        {
+    @IBOutlet weak var wkWebView: WKWebView! {
         didSet {
-            webView.navigationDelegate = self
+            wkWebView.navigationDelegate = self
         }
     }
     
@@ -36,33 +35,39 @@ class LoginWebViewController: UIViewController {
         
         let request = URLRequest(url: urlComponents.url!)
         
-        webView.load(request)
+        wkWebView.load(request)
     }
+    
+}
+
+extension LoginWebViewController: WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
         
-//        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment  else {
-//            decisionHandler(.allow)
-//            return
-//        }
-//
-//        let params = fragment
-//            .components(separatedBy: "&")
-//            .map { $0.components(separatedBy: "=") }
-//            .reduce([String: String]()) { result, param in
-//                var dict = result
-//                let key = param[0]
-//                let value = param[1]
-//                dict[key] = value
-//                return dict
-//        }
-//
-//        Session.instance.token = params["access_token"]!
-//        Session.instance.userId = Int(params["user_id"]!)!
-//
-//        print("token: \(params["access_token"]!), user: \(params["user_id"]!)")
-//
-//        decisionHandler(.cancel)
+        guard let url = navigationResponse.response.url, url.path == "/blank.html", let fragment = url.fragment  else {
+            decisionHandler(.allow)
+            return
+        }
+        
+        let params = fragment
+            .components(separatedBy: "&")
+            .map { $0.components(separatedBy: "=") }
+            .reduce([String: String]()) { result, param in
+                var dict = result
+                let key = param[0]
+                let value = param[1]
+                dict[key] = value
+                return dict
+        }
+
+        Session.instance.token = params["access_token"]!
+        Session.instance.userId = Int(params["user_id"]!)!
+
+        print("token: \(params["access_token"]!), user: \(params["user_id"]!)")
+        
+        decisionHandler(.cancel)
+        
+        performSegue(withIdentifier: "fromWebToLoginSegue", sender: self)
     }
 }
 
