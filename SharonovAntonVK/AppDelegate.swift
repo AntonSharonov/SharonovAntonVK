@@ -10,7 +10,6 @@ import UIKit
 import CoreData
 import Alamofire
 
-
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
