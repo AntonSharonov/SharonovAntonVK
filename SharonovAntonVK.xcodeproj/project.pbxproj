@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		045759FF245809470052E7CC /* AfterLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 045759FE245809470052E7CC /* AfterLoginViewController.swift */; };
+		047094122472ECAD006E4AA0 /* VKRequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047094112472ECAD006E4AA0 /* VKRequests.swift */; };
 		047559C32472AC2C006E165B /* LoginWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047559C22472AC2C006E165B /* LoginWebViewController.swift */; };
 		047BE8E8244756D0005BE481 /* NewsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE8E7244756D0005BE481 /* NewsTableViewController.swift */; };
 		047BE8EB244757A4005BE481 /* NewsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 047BE8E9244757A4005BE481 /* NewsTableViewCell.swift */; };
@@ -35,6 +36,7 @@
 
 /* Begin PBXFileReference section */
 		045759FE245809470052E7CC /* AfterLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterLoginViewController.swift; sourceTree = "<group>"; };
+		047094112472ECAD006E4AA0 /* VKRequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKRequests.swift; sourceTree = "<group>"; };
 		047559C22472AC2C006E165B /* LoginWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginWebViewController.swift; sourceTree = "<group>"; };
 		047BE8E7244756D0005BE481 /* NewsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewController.swift; sourceTree = "<group>"; };
 		047BE8E9244757A4005BE481 /* NewsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsTableViewCell.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 				04937C5024330E4700739FD8 /* Assets.xcassets */,
 				04937C5224330E4700739FD8 /* LaunchScreen.storyboard */,
 				04937C5524330E4700739FD8 /* Info.plist */,
+				047094112472ECAD006E4AA0 /* VKRequests.swift */,
 			);
 			path = SharonovAntonVK;
 			sourceTree = "<group>";
@@ -302,6 +305,7 @@
 				04FF9B692438D5970098262E /* FriendsPhotoesCollectionViewCell.swift in Sources */,
 				04FF9B5A2438B81E0098262E /* FriendsTableViewController.swift in Sources */,
 				04E02D8524683EAF00461B8D /* Session.swift in Sources */,
+				047094122472ECAD006E4AA0 /* VKRequests.swift in Sources */,
 				04DC50E924505AFA0090362C /* PhotoSliderViewController.swift in Sources */,
 				04FF9B672438D5640098262E /* FriendsPhotoesCollectionViewController.swift in Sources */,
 				04FF9B5C2438B8380098262E /* FriendsTableViewCell.swift in Sources */,

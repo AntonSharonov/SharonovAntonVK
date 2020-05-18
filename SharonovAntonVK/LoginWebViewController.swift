@@ -62,12 +62,10 @@ extension LoginWebViewController: WKNavigationDelegate {
 
         Session.instance.token = params["access_token"]!
         Session.instance.userId = Int(params["user_id"]!)!
-
         print("token: \(params["access_token"]!), user: \(params["user_id"]!)")
         
-        decisionHandler(.cancel)
-        
         performSegue(withIdentifier: "fromWebToLoginSegue", sender: self)
+        decisionHandler(.cancel)
     }
 }
 
