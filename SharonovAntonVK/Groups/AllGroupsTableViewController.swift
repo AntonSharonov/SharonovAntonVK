@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class AllGroupsTableViewController: UITableViewController {
     
@@ -41,7 +42,7 @@ class AllGroupsTableViewController: UITableViewController {
         
         cell.allGroupName.text = group.title
         cell.allGroupLogo.image = group.logo
-
+        
         return cell
     }
 }
@@ -53,9 +54,22 @@ extension AllGroupsTableViewController: UISearchBarDelegate {
             filteredGroups = allGroups
         } else {
             filteredGroups = allGroups.filter({ (groups: Group) -> Bool in
-            return groups.title.lowercased().contains(searchText.lowercased())
-        })
-        searching = true
+                return groups.title.lowercased().contains(searchText.lowercased())
+            })
+            searching = true
+            
+            AF.request("https://api.vk.com/method/groups.search",
+                       parameters: [
+                        "access_token": Session.instance.token,
+                        "q": searchText,
+                        "type": "group",
+                        "sort": "3",
+                        "count": "5",
+                        "v": "5.103"
+            ]).responseJSON { response in
+                print(response.value!)
+            }
+            
         }
         tableView.reloadData()
     }

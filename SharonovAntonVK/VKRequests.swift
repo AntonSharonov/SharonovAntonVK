@@ -8,9 +8,9 @@
 
 import Alamofire
 
-class VKRequests {
+class VKService {
     
-    let methodUrl = "https://api.vk.com/method"
+    let baseUrl = "https://api.vk.com/method"
     var token = Session.instance.token
     
 }

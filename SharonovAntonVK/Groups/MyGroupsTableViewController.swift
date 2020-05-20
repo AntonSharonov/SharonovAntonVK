@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class MyGroupsTableViewController: UITableViewController {
     
@@ -14,6 +15,18 @@ class MyGroupsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AF.request("https://api.vk.com/method/groups.get",
+                   parameters: [
+                    "access_token": Session.instance.token,
+                    "user_id": Session.instance.userId,
+                    "extended": "1",
+                    "count": "5",
+                    "fields": "country, members_count, counters, status",
+                    "v": "5.103"
+        ]).responseJSON { response in
+            print(response.value!)
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

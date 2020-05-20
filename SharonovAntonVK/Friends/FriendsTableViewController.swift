@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class FriendsTableViewController: UITableViewController {
     
@@ -20,6 +21,18 @@ class FriendsTableViewController: UITableViewController {
         super.viewDidLoad()
         friendsSearchBar.delegate = self
         sortedFriends(friends: friends)
+        
+        AF.request("https://api.vk.com/method/friends.get",
+                   parameters: [
+                    "access_token": Session.instance.token,
+                    "user_id": Session.instance.userId,
+                    "order": "name",
+                    "count": "5",
+                    "fields": "sex, bdate, city, status",
+                    "v": "5.103"
+        ]).responseJSON { response in
+            print(response.value!)
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {

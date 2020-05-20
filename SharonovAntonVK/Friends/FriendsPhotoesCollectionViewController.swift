@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class FriendsPhotoesCollectionViewController: UICollectionViewController {
     
@@ -14,6 +15,18 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        AF.request("https://api.vk.com/method/photos.getAll",
+                   parameters: [
+                    "access_token": Session.instance.token,
+                    "owner_id": "63020653",
+                    "extended": "0",
+                    "count": "10",
+                    "no_service_albums": "0",
+                    "v": "5.103"
+        ]).responseJSON { response in
+            print(response.value!)
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
