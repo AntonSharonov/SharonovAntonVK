@@ -14,6 +14,8 @@ class FriendsTableViewController: UITableViewController {
     @IBOutlet weak var friendsSearchBar: UISearchBar!
     
     let friends = FriendsMaker.makeFriends()
+  
+//    var friends = [FriendsResponse.VKFriends]()
     
     var friendSection = [Section]()
     
@@ -21,6 +23,8 @@ class FriendsTableViewController: UITableViewController {
         super.viewDidLoad()
         friendsSearchBar.delegate = self
         sortedFriends(friends: friends)
+        
+        
         
         AF.request("https://api.vk.com/method/friends.get",
                    parameters: [
@@ -31,6 +35,17 @@ class FriendsTableViewController: UITableViewController {
                     "fields": "sex, bdate, city, status",
                     "v": "5.103"
         ]).responseJSON { response in
+            
+//            do {
+//                let friend = try JSONDecoder().decode(FriendsResponse.self, from: response.value!)
+//                friend.response.items
+//                print(friend)
+//            } catch {
+//                print(error)
+//            }
+            
+            
+            
             print(response.value!)
         }
     }
@@ -91,24 +106,4 @@ extension FriendsTableViewController: UISearchBarDelegate {
         tableView.reloadData()
     }
 }
-
-//extension FriendsTableViewController: UIViewControllerTransitioningDelegate {
-//
-//    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        ScreenTransitionAnimation()
-//    }
-//
-//
-//    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        ScreenTransitionAnimation()
-//    }
-//}
-//
-//final class ScreenTransitionAnimation: NSObject, UIViewControllerInteractiveTransitioning {
-//
-//    func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
-//        nil
-//    }
-//
-//}
 

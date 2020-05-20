@@ -36,23 +36,24 @@
                     </view>
                     <connections>
                         <outlet property="wkWebView" destination="U0X-xW-I7G" id="d7Y-8f-jKj"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="fromWebToLoginSegue" modalPresentationStyle="fullScreen" id="b6F-tF-Vrj"/>
+                        <segue destination="DNG-gk-jxk" kind="presentation" identifier="fromWebToLoginSegue" modalPresentationStyle="fullScreen" id="tcr-GX-NrE"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="id" id="njU-oy-3hR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9So-bo-5qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1917" y="121"/>
+            <point key="canvasLocation" x="336" y="121"/>
         </scene>
         <!--Login Form View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginFormViewController" customModule="SharonovAntonVK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="wNb-Aq-OeM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="guX-9q-5xa">
                                         <rect key="frame" x="113.5" y="20" width="187" height="31"/>
@@ -150,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-990" y="121"/>
+            <point key="canvasLocation" x="336" y="-575"/>
         </scene>
         <!--After Login View Controller-->
         <scene sceneID="u0d-MS-3UO">
@@ -205,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPY-Fj-OMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="121"/>
+            <point key="canvasLocation" x="1149" y="-575"/>
         </scene>
         <!--nvaigation-->
         <scene sceneID="gN8-Z8-Yhw">
@@ -447,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adV-Gk-avd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288" y="-575"/>
+            <point key="canvasLocation" x="4214" y="-575"/>
         </scene>
         <!--Groups-->
         <scene sceneID="hjr-2k-czc">
@@ -815,7 +816,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZp-nc-LLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="121"/>
+            <point key="canvasLocation" x="1149" y="121"/>
         </scene>
     </scenes>
     <resources>
@@ -832,4 +833,7 @@
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C4S-9K-GQr"/>
+    </inferredMetricsTieBreakers>
 </document>
