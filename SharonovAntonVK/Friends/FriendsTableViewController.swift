@@ -35,43 +35,32 @@ class FriendsTableViewController: UITableViewController {
             URLQueryItem(name: "access_token", value: Session.instance.token),
             URLQueryItem(name: "v", value: "5.103"),
         ]
-    
+        
         URLSession.shared.dataTask(with: urlConstructor.url!) { data, response, error in
             
-            guard let data = data,
-                let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) else {
-                    return
+            guard let data = data else { return }
+            
+            do {
+                let users = try JSONDecoder().decode(FriendsResponse.self, from: data)
+                print(users)
+            } catch {
+                print(error)
             }
-            var arrayOfUsers = [VKUser]()
-            
-            let friendsJson = json as! [String : Any]
-            let response = friendsJson["response"] as! [String : Any]
-            let items = response["items"] as! [Any]
-            
-            for userJson in items {
-                let userJson = userJson as! [String: Any]
-                
-                let user = VKUser(json: userJson)
-                arrayOfUsers.append(user)
-            }
-            
-            print(arrayOfUsers)
-            
         }.resume()
         
         
         
-//        AF.request("https://api.vk.com/method/friends.get",
-//                   parameters: [
-//                    "access_token": Session.instance.token,
-//                    "user_id": Session.instance.userId,
-//                    "order": "name",
-//                    "count": "5",
-//                    "fields": "sex, bdate, city, status",
-//                    "v": "5.103"
-//        ]).responseJSON { response in
-//            print(response.value!)
-//        }
+        //        AF.request("https://api.vk.com/method/friends.get",
+        //                   parameters: [
+        //                    "access_token": Session.instance.token,
+        //                    "user_id": Session.instance.userId,
+        //                    "order": "name",
+        //                    "count": "5",
+        //                    "fields": "sex, bdate, city, status",
+        //                    "v": "5.103"
+        //        ]).responseJSON { response in
+        //            print(response.value!)
+        //        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
