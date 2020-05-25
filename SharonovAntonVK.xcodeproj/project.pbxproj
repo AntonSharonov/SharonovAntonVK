@@ -19,6 +19,7 @@
 		04937C5C24330F8900739FD8 /* LoginFormViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04937C5B24330F8900739FD8 /* LoginFormViewController.swift */; };
 		04B3FBC724755F2500247B41 /* VKFriends.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B3FBC624755F2500247B41 /* VKFriends.swift */; };
 		04B46BA5247C1B2B00ED41CA /* VKGroups.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46BA4247C1B2B00ED41CA /* VKGroups.swift */; };
+		04B46BA7247C220300ED41CA /* VKPhotos.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04B46BA6247C220300ED41CA /* VKPhotos.swift */; };
 		04BA3C1324481E2900CC2387 /* News.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04BA3C1224481E2900CC2387 /* News.swift */; };
 		04DC50E924505AFA0090362C /* PhotoSliderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04DC50E824505AFA0090362C /* PhotoSliderViewController.swift */; };
 		04E02D8524683EAF00461B8D /* Session.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04E02D8424683EAF00461B8D /* Session.swift */; };
@@ -51,6 +52,7 @@
 		04937C5B24330F8900739FD8 /* LoginFormViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginFormViewController.swift; sourceTree = "<group>"; };
 		04B3FBC624755F2500247B41 /* VKFriends.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKFriends.swift; sourceTree = "<group>"; };
 		04B46BA4247C1B2B00ED41CA /* VKGroups.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKGroups.swift; sourceTree = "<group>"; };
+		04B46BA6247C220300ED41CA /* VKPhotos.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKPhotos.swift; sourceTree = "<group>"; };
 		04BA3C1224481E2900CC2387 /* News.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = News.swift; sourceTree = "<group>"; };
 		04DC50E824505AFA0090362C /* PhotoSliderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSliderViewController.swift; sourceTree = "<group>"; };
 		04E02D8424683EAF00461B8D /* Session.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Session.swift; sourceTree = "<group>"; };
@@ -132,12 +134,13 @@
 		04EDE59F243B3808005CFDBC /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				04EDE5A0243B38F5005CFDBC /* User.swift */,
 				04B3FBC624755F2500247B41 /* VKFriends.swift */,
 				04B46BA4247C1B2B00ED41CA /* VKGroups.swift */,
+				04B46BA6247C220300ED41CA /* VKPhotos.swift */,
 				04E02D8424683EAF00461B8D /* Session.swift */,
-				04BA3C1224481E2900CC2387 /* News.swift */,
+				04EDE5A0243B38F5005CFDBC /* User.swift */,
 				04EDE5A2243B391A005CFDBC /* Group.swift */,
+				04BA3C1224481E2900CC2387 /* News.swift */,
 				04F637DA24436DC2004D066F /* ButtonWithCounter.swift */,
 			);
 			path = Model;
@@ -313,6 +316,7 @@
 				04B3FBC724755F2500247B41 /* VKFriends.swift in Sources */,
 				04E02D8524683EAF00461B8D /* Session.swift in Sources */,
 				04B46BA5247C1B2B00ED41CA /* VKGroups.swift in Sources */,
+				04B46BA7247C220300ED41CA /* VKPhotos.swift in Sources */,
 				047094122472ECAD006E4AA0 /* VKRequests.swift in Sources */,
 				04DC50E924505AFA0090362C /* PhotoSliderViewController.swift in Sources */,
 				04FF9B672438D5640098262E /* FriendsPhotoesCollectionViewController.swift in Sources */,

@@ -16,17 +16,37 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AF.request("https://api.vk.com/method/photos.getAll",
-                   parameters: [
-                    "access_token": Session.instance.token,
-                    "owner_id": "63020653",
-                    "extended": "0",
-                    "count": "10",
-                    "no_service_albums": "0",
-                    "v": "5.103"
-        ]).responseJSON { response in
-            print(response.value!)
-        }
+        var urlConstructor = URLComponents()
+             
+             urlConstructor.scheme = "https"
+             urlConstructor.host = "api.vk.com"
+             urlConstructor.path = "/method/photos.getAll"
+             urlConstructor.queryItems = [
+                 URLQueryItem(name: "owner_id", value: "423011593"),
+                 URLQueryItem(name: "access_token", value: Session.instance.token),
+                 URLQueryItem(name: "v", value: "5.107"),
+             ]
+             
+             URLSession.shared.dataTask(with: urlConstructor.url!) { data, response, error in
+                 
+                 guard let data = data else { return }
+                 
+                 do {
+                     let photos = try JSONDecoder().decode(PhotosResponse.self, from: data)
+                     print(photos)
+                 } catch {
+                     print(error)
+                 }
+             }.resume()
+        
+//        AF.request("https://api.vk.com/method/photos.getAll",
+//                   parameters: [
+//                    "access_token": Session.instance.token,
+//                    "owner_id": "63020653",
+//                    "v": "5.107"
+//        ]).responseJSON { response in
+//            print(response.value!)
+//        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
