@@ -18,13 +18,13 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
         
         var urlConstructor = URLComponents()
              
-             urlConstructor.scheme = "https"
-             urlConstructor.host = "api.vk.com"
+             urlConstructor.scheme = baseScheme
+             urlConstructor.host = baseHost
              urlConstructor.path = "/method/photos.getAll"
              urlConstructor.queryItems = [
                  URLQueryItem(name: "owner_id", value: "423011593"),
                  URLQueryItem(name: "access_token", value: Session.instance.token),
-                 URLQueryItem(name: "v", value: "5.107"),
+                 URLQueryItem(name: "v", value: Session.instance.apiVersion),
              ]
              
              URLSession.shared.dataTask(with: urlConstructor.url!) { data, response, error in
