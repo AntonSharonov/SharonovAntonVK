@@ -11,7 +11,13 @@ import UIKit
 struct VKGroup: Codable {
     let id: Int
     let name: String
-    let photo_50: String
+    let photo50: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name
+        case photo50 = "photo_50"
+    }
 }
 
 struct MyGroupsResponse: Codable {
