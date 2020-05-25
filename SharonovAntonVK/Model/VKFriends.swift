@@ -13,20 +13,14 @@ struct VKUser: Codable {
     let last_name: String
     let id: Int
     let online: Int
-    
-//    init(json: [String: Any]) {
-//        self.first_name = json["first_name"] as! String
-//        self.last_name = json["last_name"] as! String
-//        self.id = json["id"] as! Int
-//        self.online = json["online"] as! Int
-//    }
+    let photo_50: String
 }
 
-struct Response: Codable {
+struct MyFriendsResponse: Codable {
     let count: Int
     let items: [VKUser]
 }
 
 struct FriendsResponse: Codable {
-    let response: Response
+    let response: MyFriendsResponse
 }

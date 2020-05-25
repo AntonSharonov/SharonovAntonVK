@@ -31,9 +31,9 @@ class FriendsTableViewController: UITableViewController {
         urlConstructor.path = "/method/friends.get"
         urlConstructor.queryItems = [
             URLQueryItem(name: "user_id", value: String(Session.instance.userId)),
-            URLQueryItem(name: "fields", value: "bdate"),
+            URLQueryItem(name: "fields", value: "photo_50"),
             URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "v", value: "5.103"),
+            URLQueryItem(name: "v", value: "5.107"),
         ]
         
         URLSession.shared.dataTask(with: urlConstructor.url!) { data, response, error in
@@ -57,7 +57,7 @@ class FriendsTableViewController: UITableViewController {
         //                    "order": "name",
         //                    "count": "5",
         //                    "fields": "sex, bdate, city, status",
-        //                    "v": "5.103"
+        //                    "v": "5.107"
         //        ]).responseJSON { response in
         //            print(response.value!)
         //        }

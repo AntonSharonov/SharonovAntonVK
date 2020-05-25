@@ -16,17 +16,39 @@ class MyGroupsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        AF.request("https://api.vk.com/method/groups.get",
-                   parameters: [
-                    "access_token": Session.instance.token,
-                    "user_id": Session.instance.userId,
-                    "extended": "1",
-                    "count": "5",
-                    "fields": "country, members_count, counters, status",
-                    "v": "5.103"
-        ]).responseJSON { response in
-            print(response.value!)
-        }
+        var urlConstructor = URLComponents()
+              
+              urlConstructor.scheme = "https"
+              urlConstructor.host = "api.vk.com"
+              urlConstructor.path = "/method/groups.get"
+              urlConstructor.queryItems = [
+                  URLQueryItem(name: "user_ids", value: String(Session.instance.userId)),
+                  URLQueryItem(name: "extended", value: "1"),
+                  URLQueryItem(name: "access_token", value: Session.instance.token),
+                  URLQueryItem(name: "v", value: "5.107"),
+              ]
+              
+              URLSession.shared.dataTask(with: urlConstructor.url!) { data, response, error in
+                  
+                  guard let data = data else { return }
+                  
+                  do {
+                      let groups = try JSONDecoder().decode(GroupsResponse.self, from: data)
+                      print(groups)
+                  } catch {
+                      print(error)
+                  }
+              }.resume()
+
+//        AF.request("https://api.vk.com/method/groups.get",
+//                   parameters: [
+//                    "access_token": Session.instance.token,
+//                    "user_id": Session.instance.userId,
+//                    "extended": "1",
+//                    "v": "5.107"
+//        ]).responseJSON { response in
+//            print(response.value!)
+//        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
