@@ -22,6 +22,25 @@ struct VKUser: Codable {
         case online
         case photo50 = "photo_50"
     }
+    
+//    enum MyFriendsKeys: String, CodingKey {
+//        case count
+//        case items
+//    }
+//
+//    enum FriendsKeys: String, CodingKey {
+//        case response
+//    }
+    
+//    init(from decoder: Decoder) throws {
+//        let values = try decoder.container(keyedBy: CodingKeys.self)
+//        self.firstName = try values.decode(String.self, forKey: .firstName)
+//        self.lastName = try values.decode(String.self, forKey: .lastName)
+//        self.id = try values.decode(Int.self, forKey: .id)
+//        self.online = try values.decode(Int.self, forKey: .online)
+//        self.photo50 = try values.decode(String.self, forKey: .photo50)
+//    }
+    
 }
 
 struct MyFriendsResponse: Codable {
