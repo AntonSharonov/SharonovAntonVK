@@ -14,8 +14,8 @@ class FriendsTableViewController: UITableViewController {
     @IBOutlet weak var friendsSearchBar: UISearchBar!
     
     let friends = FriendsMaker.makeFriends()
-  
-//    var friends = [FriendsResponse.VKFriends]()
+    
+    //    var friends = [FriendsResponse.VKFriends]()
     
     var friendSection = [Section]()
     
@@ -24,31 +24,40 @@ class FriendsTableViewController: UITableViewController {
         friendsSearchBar.delegate = self
         sortedFriends(friends: friends)
         
-//        let url = URL(string: "https://api.vk.com/method/friends.get")!
-//
-//        URLSession.shared.dataTask(with: url) { data, response, error in
-//
-//            guard let data = data,
-//                let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) else {
-//                    return
-//            }
-//            var arrayOfUsers = [VKUser]()
-//
-//            let friendsResponse = json as! FriendsResponse
-//            let response = json as! Response
-//            let array = json as! [VKUser]
-//
-//
-//            for userJson in array {
-//                let userJson = userJson as! [String: Any]
-//
-//                let user = VKUser(json: userJson)
-//                arrayOfUsers.append(user)
-//            }
-//
-//            print(arrayOfUsers)
-//
-//        }.resume()
+        var urlConstructor = URLComponents()
+        
+        urlConstructor.scheme = "https"
+        urlConstructor.host = "api.vk.com"
+        urlConstructor.path = "/method/friends.get"
+        urlConstructor.queryItems = [
+            URLQueryItem(name: "user_id", value: String(Session.instance.userId)),
+            URLQueryItem(name: "fields", value: "bdate"),
+            URLQueryItem(name: "access_token", value: Session.instance.token),
+            URLQueryItem(name: "v", value: "5.103"),
+        ]
+    
+        URLSession.shared.dataTask(with: urlConstructor.url!) { data, response, error in
+            
+            guard let data = data,
+                let json = try? JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.mutableContainers) else {
+                    return
+            }
+            var arrayOfUsers = [VKUser]()
+            
+            let friendsJson = json as! [String : Any]
+            let response = friendsJson["response"] as! [String : Any]
+            let items = response["items"] as! [Any]
+            
+            for userJson in items {
+                let userJson = userJson as! [String: Any]
+                
+                let user = VKUser(json: userJson)
+                arrayOfUsers.append(user)
+            }
+            
+            print(arrayOfUsers)
+            
+        }.resume()
         
         
         
@@ -79,7 +88,7 @@ class FriendsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendNameCell", for: indexPath) as! FriendsTableViewCell
-          
+        
         cell.friendName.text = friendSection[indexPath.section].items[indexPath.row].name
         cell.friendAvatar.image = friendSection[indexPath.section].items[indexPath.row].avatar
         
