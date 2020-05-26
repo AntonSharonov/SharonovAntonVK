@@ -16,7 +16,7 @@ struct User {
 
 struct Section {
     let title: String
-    var items: [User]
+    var items: [VKUser]
 }
 
 final class FriendsMaker {

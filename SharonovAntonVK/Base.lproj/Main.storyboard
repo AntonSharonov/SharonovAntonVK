@@ -36,23 +36,24 @@
                     </view>
                     <connections>
                         <outlet property="wkWebView" destination="U0X-xW-I7G" id="d7Y-8f-jKj"/>
-                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="fromWebToLoginSegue" modalPresentationStyle="fullScreen" id="b6F-tF-Vrj"/>
+                        <segue destination="DNG-gk-jxk" kind="presentation" identifier="fromWebToLoginSegue" modalPresentationStyle="fullScreen" id="tcr-GX-NrE"/>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="id" id="njU-oy-3hR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9So-bo-5qo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1917" y="121"/>
+            <point key="canvasLocation" x="336" y="121"/>
         </scene>
         <!--Login Form View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="LoginFormViewController" customModule="SharonovAntonVK" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" translatesAutoresizingMaskIntoConstraints="NO" id="wNb-Aq-OeM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="guX-9q-5xa">
                                         <rect key="frame" x="113.5" y="20" width="187" height="31"/>
@@ -150,7 +151,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-990" y="121"/>
+            <point key="canvasLocation" x="336" y="-575"/>
         </scene>
         <!--After Login View Controller-->
         <scene sceneID="u0d-MS-3UO">
@@ -205,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zPY-Fj-OMh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-52" y="121"/>
+            <point key="canvasLocation" x="1149" y="-575"/>
         </scene>
         <!--nvaigation-->
         <scene sceneID="gN8-Z8-Yhw">
@@ -244,15 +245,15 @@
                             <textInputTraits key="textInputTraits"/>
                         </searchBar>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="friendNameCell" id="pyT-aU-ePl" customClass="FriendsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="friendNameCell" id="pyT-aU-ePl" customClass="FriendsTableViewCell" customModule="SharonovAntonVK" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="72" width="414" height="60"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="pyT-aU-ePl" id="Y1c-5T-Aqi">
-                                    <rect key="frame" x="0.0" y="0.0" width="383" height="60"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Friend Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JPh-OH-Sjz">
-                                            <rect key="frame" x="90" y="19.5" width="273" height="21"/>
+                                            <rect key="frame" x="90" y="19.5" width="97.5" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -279,12 +280,21 @@
                                                 <action selector="pressOnAvatar" destination="pyT-aU-ePl" eventType="touchUpInside" id="KkQ-4Z-AJq"/>
                                             </connections>
                                         </view>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CP0-sC-Ufo">
+                                            <rect key="frame" x="70" y="45" width="10" height="10"/>
+                                            <color key="tintColor" red="0.53725490196078429" green="0.75686274509803919" blue="0.49803921568627452" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="10" id="D4H-vv-yuN"/>
+                                                <constraint firstAttribute="width" constant="10" id="KXh-ie-Rdz"/>
+                                            </constraints>
+                                        </imageView>
                                     </subviews>
                                     <constraints>
                                         <constraint firstItem="JPh-OH-Sjz" firstAttribute="leading" secondItem="qIl-1a-TDx" secondAttribute="trailing" constant="20" id="8r9-as-kNq"/>
+                                        <constraint firstItem="CP0-sC-Ufo" firstAttribute="leading" secondItem="qIl-1a-TDx" secondAttribute="trailing" id="VHh-bf-VWE"/>
                                         <constraint firstItem="qIl-1a-TDx" firstAttribute="centerY" secondItem="Y1c-5T-Aqi" secondAttribute="centerY" id="apM-KT-XVf"/>
-                                        <constraint firstAttribute="trailing" secondItem="JPh-OH-Sjz" secondAttribute="trailing" constant="20" id="jKh-96-EEj"/>
                                         <constraint firstItem="qIl-1a-TDx" firstAttribute="leading" secondItem="Y1c-5T-Aqi" secondAttribute="leading" constant="20" id="qgC-Xv-7TU"/>
+                                        <constraint firstAttribute="bottom" secondItem="CP0-sC-Ufo" secondAttribute="bottom" constant="5" id="wdW-fi-hBy"/>
                                         <constraint firstItem="JPh-OH-Sjz" firstAttribute="centerY" secondItem="Y1c-5T-Aqi" secondAttribute="centerY" id="zxM-OE-Krh"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -292,6 +302,7 @@
                                     <outlet property="friendAvatar" destination="xhX-Ip-4oR" id="8ut-jY-TaK"/>
                                     <outlet property="friendAvatarView" destination="qIl-1a-TDx" id="41y-uu-2j4"/>
                                     <outlet property="friendName" destination="JPh-OH-Sjz" id="5zB-mZ-2Ub"/>
+                                    <outlet property="friendOnline" destination="CP0-sC-Ufo" id="Mdb-hK-rQV"/>
                                     <segue destination="kpO-aI-QCZ" kind="show" id="YCz-ks-Hx4"/>
                                 </connections>
                             </tableViewCell>
@@ -311,7 +322,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PSe-0F-QIX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="-575"/>
+            <point key="canvasLocation" x="2698.5507246376815" y="-575.22321428571422"/>
         </scene>
         <!--Friends Photoes Collection View Controller-->
         <scene sceneID="YZY-ln-jQY">
@@ -447,7 +458,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="adV-Gk-avd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4288" y="-575"/>
+            <point key="canvasLocation" x="4214" y="-575"/>
         </scene>
         <!--Groups-->
         <scene sceneID="hjr-2k-czc">
@@ -815,7 +826,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TZp-nc-LLT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="903" y="121"/>
+            <point key="canvasLocation" x="1149" y="121"/>
         </scene>
     </scenes>
     <resources>
@@ -832,4 +843,7 @@
         <image name="person.3" catalog="system" width="72" height="35"/>
         <image name="person.crop.circle" catalog="system" width="64" height="60"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="C4S-9K-GQr"/>
+    </inferredMetricsTieBreakers>
 </document>

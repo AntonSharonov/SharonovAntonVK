@@ -8,6 +8,9 @@
 
 import UIKit
 
+let baseScheme = "https"
+let baseHost = "api.vk.com"
+
 class Session {
     
     static let instance = Session()
@@ -16,4 +19,5 @@ class Session {
     
     var token = ""
     var userId = 0
+    let apiVersion = "5.107"
 }

@@ -7,19 +7,25 @@
 //
 
 import UIKit
+import Alamofire
 
 class FriendsTableViewController: UITableViewController {
     
     @IBOutlet weak var friendsSearchBar: UISearchBar!
     
-    let friends = FriendsMaker.makeFriends()
-    
+    let friendsService = FriendsService()
+    var vkFriends = [VKUser]()
     var friendSection = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         friendsSearchBar.delegate = self
-        sortedFriends(friends: friends)
+        
+        friendsService.loadFriendsData() { [weak self] friends in
+            self?.vkFriends = friends
+            self?.sortedFriends(friends: self!.vkFriends)
+            self?.tableView?.reloadData()
+        }
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -36,26 +42,32 @@ class FriendsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendNameCell", for: indexPath) as! FriendsTableViewCell
-          
-        cell.friendName.text = friendSection[indexPath.section].items[indexPath.row].name
-        cell.friendAvatar.image = friendSection[indexPath.section].items[indexPath.row].avatar
+        
+        cell.friendName.text = friendSection[indexPath.section].items[indexPath.row].firstName + " " + friendSection[indexPath.section].items[indexPath.row].lastName
+        
+        let url = URL(string: friendSection[indexPath.section].items[indexPath.row].photo50)
+        cell.friendAvatar.image = UIImage(data: try! Data(contentsOf: url!))
+        
+        if friendSection[indexPath.section].items[indexPath.row].online == 1 {
+            cell.friendOnline.image = UIImage(systemName: "circle.fill")
+        }
         
         return cell
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let friendsCollection = segue.destination as? FriendsPhotoesCollectionViewController {
-            if let indexPath = tableView.indexPathForSelectedRow {
-                let friend = friendSection[indexPath.section].items[indexPath.row]
-                friendsCollection.friendPhoto = friend
-                friendsCollection.title = "\(friendSection[indexPath.section].items[indexPath.row].name)'s photoes"
+        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+            if let friendsCollection = segue.destination as? FriendsPhotoesCollectionViewController {
+                if let indexPath = tableView.indexPathForSelectedRow {
+//                    let friend = friendSection[indexPath.section].items[indexPath.row]
+//                    friendsCollection.friendPhoto = friend
+                    friendsCollection.title = "\(friendSection[indexPath.section].items[indexPath.row].firstName)'s photoes"
+                }
             }
         }
-    }
     
-    func sortedFriends(friends: [User]) {
-        let userDictionary = Dictionary.init(grouping: friends, by: { $0.name.first! })
-        friendSection = userDictionary.map { Section(title: String($0.key), items: $0.value) }
+    func sortedFriends(friends: [VKUser]) {
+        let userDictionary = Dictionary.init(grouping: friends, by: { $0.firstName.first })
+        friendSection = userDictionary.map { Section(title: String($0.key!), items: $0.value) }
         friendSection.sort { $0.title < $1.title }
     }
 }
@@ -63,10 +75,18 @@ class FriendsTableViewController: UITableViewController {
 extension FriendsTableViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            sortedFriends(friends: friends)
+            sortedFriends(friends: vkFriends)
         } else {
-            let filteredUsers = friends.filter({ (friend: User) -> Bool in
-                return friend.name.lowercased().contains(searchText.lowercased())
+            let filteredUsers = vkFriends.filter({ (friend: VKUser) -> Bool in
+                
+                let firstName = friend.firstName.lowercased().contains(searchText.lowercased())
+                let lastName = friend.lastName.lowercased().contains(searchText.lowercased())
+                
+                if firstName {
+                    return firstName
+                } else {
+                    return lastName
+                }
             })
             sortedFriends(friends: filteredUsers)
         }
@@ -74,28 +94,8 @@ extension FriendsTableViewController: UISearchBarDelegate {
     }
     
     func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
-        sortedFriends(friends: friends)
+        sortedFriends(friends: vkFriends)
         tableView.reloadData()
     }
 }
-
-//extension FriendsTableViewController: UIViewControllerTransitioningDelegate {
-//
-//    func interactionControllerForPresentation(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        ScreenTransitionAnimation()
-//    }
-//
-//
-//    func interactionControllerForDismissal(using animator: UIViewControllerAnimatedTransitioning) -> UIViewControllerInteractiveTransitioning? {
-//        ScreenTransitionAnimation()
-//    }
-//}
-//
-//final class ScreenTransitionAnimation: NSObject, UIViewControllerInteractiveTransitioning {
-//
-//    func startInteractiveTransition(_ transitionContext: UIViewControllerContextTransitioning) {
-//        nil
-//    }
-//
-//}
 
