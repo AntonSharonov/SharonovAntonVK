@@ -19,24 +19,26 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         
         photoService.loadPhotosData() { [weak self] photos in
-            self?.vkPhoto = photos
+            self?.photoSizes = photos
+//            print(photos)
             self?.collectionView.reloadData()
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return vkPhoto.count
+        print("count")
+        return photoSizes.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FriendPhotoCell", for: indexPath) as! FriendsPhotoesCollectionViewCell
-        
+//        print("cellcell")
 //        let photo = friendPhoto.photoes[indexPath.row]
 //        cell.friendPhotoInCell.image = photo
         
         let url = URL(string: photoSizes[indexPath.row].url)
         cell.friendPhotoInCell.image = UIImage(data: try! Data(contentsOf: url!))
-        
+        print("cell")
         return cell
     }
     

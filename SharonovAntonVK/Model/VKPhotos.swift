@@ -30,19 +30,19 @@ struct PhotosResponse: Codable {
 
 class PhotosService {
     
-    func loadPhotosData(completion: @escaping ([VKPhoto]) -> Void) {
+    func loadPhotosData(completion: @escaping ([PhotoSizes]) -> Void) {
         
         AF.request("https://api.vk.com/method/photos.getAll",
                    parameters: [
                     "access_token" : Session.instance.token,
-                    "owner_id" : "423011593",
+                    "owner_id" : "17212157",
                     "v" : Session.instance.apiVersion
         ]).responseData { response in
             
             do {
                 let photos = try JSONDecoder().decode(PhotosResponse.self, from: response.value!)
-                completion(photos.response.items)
-//                print(photos)
+//                completion(photos.response.items)
+                print(photos)
             } catch {
                 print(error)
             }

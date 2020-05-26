@@ -49,6 +49,7 @@ class FriendsService {
             do {
                 let users = try JSONDecoder().decode(FriendsResponse.self, from: response.value!)
                 completion(users.response.items)
+                print(users)
             } catch {
                 print(error)
             }

@@ -13,7 +13,7 @@ class AllGroupsTableViewController: UITableViewController {
     
     @IBOutlet weak var allGroupsSearchBar: UISearchBar!
     
-    let allGroups = GroupMaker.makeGroups()
+//    let allGroups = GroupMaker.makeGroups()
     var filteredGroups = [Group]()
     var searching = false
     
@@ -23,10 +23,10 @@ class AllGroupsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if searching {
+//        if searching {
             return filteredGroups.count
-        }
-        return allGroups.count
+//        }
+//        return allGroups.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -34,11 +34,11 @@ class AllGroupsTableViewController: UITableViewController {
         
         var group: Group
         
-        if searching {
+//        if searching {
             group = filteredGroups[indexPath.row]
-        } else {
-            group = allGroups[indexPath.row]
-        }
+//        } else {
+//            group = allGroups[indexPath.row]
+//        }
         
         cell.allGroupName.text = group.title
         cell.allGroupLogo.image = group.logo
@@ -51,24 +51,25 @@ extension AllGroupsTableViewController: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchText.isEmpty {
-            filteredGroups = allGroups
+//            filteredGroups = nil
         } else {
-            filteredGroups = allGroups.filter({ (groups: Group) -> Bool in
-                return groups.title.lowercased().contains(searchText.lowercased())
-            })
+//            filteredGroups = allGroups.filter({ (groups: Group) -> Bool in
+//                return groups.title.lowercased().contains(searchText.lowercased())
+//            })
             searching = true
             
+//            func searchGroups(searchText: searchText, completion: @escaping ([VKGroup]) -> Void) {
+
             AF.request("https://api.vk.com/method/groups.search",
                        parameters: [
                         "access_token": Session.instance.token,
                         "q": searchText,
                         "type": "group",
-                        "sort": "3",
-                        "count": "5",
-                        "v": "5.103"
+                        "v": Session.instance.apiVersion
             ]).responseJSON { response in
                 print(response.value!)
             }
+            
             
         }
         tableView.reloadData()

@@ -51,3 +51,27 @@ class GroupService {
         }
     }
 }
+
+
+//{
+//response =     {
+//    count = 14337;
+//    items =         (
+//                    {
+//            id = 14479721;
+//            "is_admin" = 0;
+//            "is_advertiser" = 0;
+//            "is_closed" = 0;
+//            "is_member" = 0;
+//            name = "\U25ba W.S.clan. - \U041e\U0444\U0438\U0446\U0438\U0430\U043b\U044c\U043d\U0430\U044f \U0433\U0440\U0443\U043f\U043f\U0430";
+//            "photo_100" = "https://sun9-30.userapi.com/c10077/g14479721/d_1c960abf.jpg?ava=1";
+//            "photo_200" = "https://sun9-30.userapi.com/c10077/g14479721/d_1c960abf.jpg?ava=1";
+//            "photo_50" = "https://sun9-30.userapi.com/c10077/g14479721/e_97814b75.jpg?ava=1";
+//            "screen_name" = club14479721;
+//            type = group;
+//        },
+//                    {
+//            id = 13258537;
+//            "is_admin" = 0;
+//            "is_advertiser" = 0;
+//            "is_closed" = 0;
