@@ -18,18 +18,31 @@ class FriendsTableViewController: UITableViewController {
     
     var vkFriends = [VKUser]()
     
-//    var friendSection = [Section]()
+    var friendSection = [Section]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 //        friendsSearchBar.delegate = self
-//        sortedFriends(friends: friends)
+        
         
 
         friendsService.loadFriendsData() { [weak self] friends in
             self?.vkFriends = friends
-            self?.tableView.reloadData()
+            self?.sortedFriends(friends: self!.vkFriends)
+//            let myFriendsDict = Dictionary.init(grouping: friends) {
+//                $0.firstName.first
+//            }
+//            self?.friendSection = myFriendsDict.map {
+//                Section(title: String($0.key!), items: $0.value)
+//            }
+//            self?.friendSection.sort {
+//                $0.title < $1.title
+//            }
+            self?.tableView?.reloadData()
+//            print(self?.friendSection.count)
         }
+        
+      
         
         
         //        AF.request("https://api.vk.com/method/friends.get",
@@ -46,25 +59,27 @@ class FriendsTableViewController: UITableViewController {
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 1//friendSection.count
+        return friendSection.count
+    }
+
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return friendSection[section].title
     }
     
-//    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-//        return friendSection[section].title
-//    }
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return vkFriends.count//friendSection[section].items.count
+        return friendSection[section].items.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "friendNameCell", for: indexPath) as! FriendsTableViewCell
         
-        cell.friendName.text = vkFriends[indexPath.row].firstName + vkFriends[indexPath.row].lastName//friendSection[indexPath.section].items[indexPath.row].lastName
-//        cell.friendAvatar.image = friendSection[indexPath.section].items[indexPath.row].photo50
+        cell.friendName.text = friendSection[indexPath.section].items[indexPath.row].firstName + " " + friendSection[indexPath.section].items[indexPath.row].lastName
         
-        if vkFriends[indexPath.row].online == 1 {
-            cell.friendAvatar.image = UIImage(named: "alex1")
+        let url = URL(string: friendSection[indexPath.section].items[indexPath.row].photo50)
+        cell.friendAvatar.image = UIImage(data: try! Data(contentsOf: url!))
+        
+        if friendSection[indexPath.section].items[indexPath.row].online == 1 {
+            cell.friendOnline.image = UIImage(systemName: "circle.fill")
         }
         
         return cell
@@ -80,11 +95,11 @@ class FriendsTableViewController: UITableViewController {
 //        }
 //    }
     
-//    func sortedFriends(friends: [User]) {
-//        let userDictionary = Dictionary.init(grouping: friends, by: { $0.name.first! })
-//        friendSection = userDictionary.map { Section(title: String($0.key), items: $0.value) }
-//        friendSection.sort { $0.title < $1.title }
-//    }
+    func sortedFriends(friends: [VKUser]) {
+        let userDictionary = Dictionary.init(grouping: friends, by: { $0.firstName.first })
+        friendSection = userDictionary.map { Section(title: String($0.key!), items: $0.value) }
+        friendSection.sort { $0.title < $1.title }
+    }
 }
 
 //extension FriendsTableViewController: UISearchBarDelegate {

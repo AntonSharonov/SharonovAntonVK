@@ -44,6 +44,8 @@ class MyGroupsTableViewController: UITableViewController {
         let group = vkGroups[indexPath.row]
         cell.myGroupName.text = group.name
 //        cell.myGroupLogo.image = group.logo
+        let url = URL(string: vkGroups[indexPath.row].photo50)
+        cell.myGroupLogo.image = UIImage(data: try! Data(contentsOf: url!))
         
         return cell
     }
