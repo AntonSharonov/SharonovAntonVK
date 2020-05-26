@@ -34,19 +34,13 @@ class GroupService {
     
     func loadGroupsData(completion: @escaping ([VKGroup]) -> Void) {
         
-        var urlConstructor = URLComponents()
-        
-        urlConstructor.scheme = baseScheme
-        urlConstructor.host = baseHost
-        urlConstructor.path = "/method/groups.get"
-        urlConstructor.queryItems = [
-            URLQueryItem(name: "user_ids", value: "\(Session.instance.userId)"),
-            URLQueryItem(name: "extended", value: "1"),
-            URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "v", value: Session.instance.apiVersion),
-        ]
-        
-        AF.request(urlConstructor.url!).responseData { response in
+        AF.request("https://api.vk.com/method/groups.get",
+                          parameters: [
+                           "access_token" : Session.instance.token,
+                           "user_id" : Session.instance.userId,
+                           "extended" : "1",
+                           "v" : Session.instance.apiVersion
+               ]).responseData { response in
             
             do {
                 let groups = try JSONDecoder().decode(GroupsResponse.self, from: response.value!)
@@ -54,7 +48,6 @@ class GroupService {
             } catch {
                 print(error)
             }
-            
         }
     }
 }

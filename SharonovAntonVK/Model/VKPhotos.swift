@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 struct PhotoSizes: Codable {
     let url: String
@@ -25,4 +26,26 @@ struct FriendsPhotosResponse: Codable {
 
 struct PhotosResponse: Codable {
     let response: FriendsPhotosResponse
+}
+
+class PhotosService {
+    
+    func loadPhotosData(completion: @escaping ([VKPhoto]) -> Void) {
+        
+        AF.request("https://api.vk.com/method/photos.getAll",
+                   parameters: [
+                    "access_token" : Session.instance.token,
+                    "owner_id" : "423011593",
+                    "v" : Session.instance.apiVersion
+        ]).responseData { response in
+            
+            do {
+                let photos = try JSONDecoder().decode(PhotosResponse.self, from: response.value!)
+                completion(photos.response.items)
+//                print(photos)
+            } catch {
+                print(error)
+            }
+        }
+    }
 }

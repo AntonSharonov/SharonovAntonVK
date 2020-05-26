@@ -23,24 +23,6 @@ struct VKUser: Codable {
         case online
         case photo50 = "photo_50"
     }
-    
-    //    enum MyFriendsKeys: String, CodingKey {
-    //        case count
-    //        case items
-    //    }
-    //
-    //    enum FriendsKeys: String, CodingKey {
-    //        case response
-    //    }
-    
-    //    init(from decoder: Decoder) throws {
-    //        let values = try decoder.container(keyedBy: CodingKeys.self)
-    //        self.firstName = try values.decode(String.self, forKey: .firstName)
-    //        self.lastName = try values.decode(String.self, forKey: .lastName)
-    //        self.id = try values.decode(Int.self, forKey: .id)
-    //        self.online = try values.decode(Int.self, forKey: .online)
-    //        self.photo50 = try values.decode(String.self, forKey: .photo50)
-    //    }
 }
 
 struct MyFriendsResponse: Codable {
@@ -56,24 +38,17 @@ class FriendsService {
     
     func loadFriendsData(completion: @escaping ([VKUser]) -> Void) {
         
-        var urlConstructor = URLComponents()
-        
-        urlConstructor.scheme = baseScheme
-        urlConstructor.host = baseHost
-        urlConstructor.path = "/method/friends.get"
-        urlConstructor.queryItems = [
-            URLQueryItem(name: "user_id", value: "\(Session.instance.userId)"),
-            URLQueryItem(name: "fields", value: "photo_50"),
-            URLQueryItem(name: "access_token", value: Session.instance.token),
-            URLQueryItem(name: "v", value: Session.instance.apiVersion),
-        ]
-        
-        AF.request(urlConstructor.url!).responseData { response in
+        AF.request("https://api.vk.com/method/friends.get",
+                   parameters: [
+                    "access_token" : Session.instance.token,
+                    "user_id" : Session.instance.userId,
+                    "fields" : "photo_50",
+                    "v" : Session.instance.apiVersion
+        ]).responseData { response in
             
             do {
                 let users = try JSONDecoder().decode(FriendsResponse.self, from: response.value!)
                 completion(users.response.items)
-                print(users)
             } catch {
                 print(error)
             }
