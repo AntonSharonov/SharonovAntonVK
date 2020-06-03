@@ -8,11 +8,12 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
-struct VKGroup: Codable {
-    let id: Int
-    let name: String
-    let photo50: String
+class VKGroup: Object, Codable {
+    @objc dynamic let id: Int
+    @objc dynamic let name: String
+    @objc dynamic let photo50: String
     
     enum CodingKeys: String, CodingKey {
         case id
