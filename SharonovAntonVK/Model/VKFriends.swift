@@ -39,6 +39,9 @@ class FriendsService {
     
     func loadFriendsData(completion: @escaping ([VKUser]) -> Void) {
         
+        let realmm = try! Realm()
+        print(realmm.configuration.fileURL!)
+        
         AF.request("https://api.vk.com/method/friends.get",
                    parameters: [
                     "access_token" : Session.instance.token,
