@@ -8,10 +8,11 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
-struct PhotoSizes: Codable {
-    let url: String
-    let type: String
+class PhotoSizes: Object, Codable {
+    @objc dynamic let url: String
+    @objc dynamic let type: String
 }
 
 struct VKPhoto: Codable {
