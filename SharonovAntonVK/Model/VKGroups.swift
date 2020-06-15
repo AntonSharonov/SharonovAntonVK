@@ -11,14 +11,18 @@ import Alamofire
 import RealmSwift
 
 class VKGroup: Object, Codable {
-    @objc dynamic let id: Int
-    @objc dynamic let name: String
-    @objc dynamic let photo50: String
+    @objc dynamic var id: Int
+    @objc dynamic var name: String
+    @objc dynamic var photo50: String
     
     enum CodingKeys: String, CodingKey {
         case id
         case name
         case photo50 = "photo_50"
+    }
+    
+    override static func primaryKey() -> String? {
+        return "id"
     }
 }
 
@@ -33,7 +37,7 @@ struct GroupsResponse: Codable {
 
 class GroupService {
     
-    func loadGroupsData(completion: @escaping ([VKGroup]) -> Void) {
+    func loadGroupsData(completion: @escaping () -> Void) {
         
         AF.request("https://api.vk.com/method/groups.get",
                           parameters: [
@@ -45,12 +49,32 @@ class GroupService {
             
             do {
                 let groups = try JSONDecoder().decode(GroupsResponse.self, from: response.value!)
-                completion(groups.response.items)
+                self.saveGroupsData(groups.response.items)
+                completion()
             } catch {
                 print(error)
             }
         }
     }
+    
+        func saveGroupsData(_ groups: [VKGroup]) {
+            
+    //        let realm = try! Realm()
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let realm = try! Realm(configuration: config)
+//            print(realm.configuration.fileURL!)
+            
+            do {
+    //            let realm = try Realm()
+                realm.beginWrite()
+                
+                realm.add(groups, update: .modified)
+                
+                try realm.commitWrite()
+            } catch {
+                print(error)
+            }
+        }
 }
 
 

@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class FriendsTableViewController: UITableViewController {
     
@@ -21,12 +22,31 @@ class FriendsTableViewController: UITableViewController {
         super.viewDidLoad()
         friendsSearchBar.delegate = self
         
-        friendsService.loadFriendsData() { [weak self] friends in
-            self?.vkFriends = friends
+        loadData()
+        friendsService.loadFriendsData() { [weak self] in
+            //            self?.vkFriends = friends
+            print("друзья")
             self?.sortedFriends(friends: self!.vkFriends)
-            self?.tableView?.reloadData()
+            self?.loadData()
+            
+//            self?.tableView?.reloadData()
+        }
+        //        friendsService.saveFriendsData(vkFriends)
+        
+    }
+    
+    func loadData() {
+        do {
+            let realm = try Realm()
+            let friends = realm.objects(VKUser.self)
+            self.vkFriends = Array(friends)
+            tableView?.reloadData()
+//            print(vkFriends)
+        } catch {
+            print(error)
         }
     }
+    
     
     override func numberOfSections(in tableView: UITableView) -> Int {
         return friendSection.count
@@ -55,15 +75,15 @@ class FriendsTableViewController: UITableViewController {
         return cell
     }
     
-        override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-            if let friendsCollection = segue.destination as? FriendsPhotoesCollectionViewController {
-                if let indexPath = tableView.indexPathForSelectedRow {
-//                    let friend = friendSection[indexPath.section].items[indexPath.row]
-//                    friendsCollection.friendPhoto = friend
-                    friendsCollection.title = "\(friendSection[indexPath.section].items[indexPath.row].firstName)'s photoes"
-                }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let friendsCollection = segue.destination as? FriendsPhotoesCollectionViewController {
+            if let indexPath = tableView.indexPathForSelectedRow {
+                //                    let friend = friendSection[indexPath.section].items[indexPath.row]
+                //                    friendsCollection.friendPhoto = friend
+                friendsCollection.title = "\(friendSection[indexPath.section].items[indexPath.row].firstName)'s photoes"
             }
         }
+    }
     
     func sortedFriends(friends: [VKUser]) {
         let userDictionary = Dictionary.init(grouping: friends, by: { $0.firstName.first })
