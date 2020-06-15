@@ -11,11 +11,11 @@ import Alamofire
 import RealmSwift
 
 class VKUser: Object, Codable {
-    @objc dynamic let firstName: String
-    @objc dynamic let lastName: String
-    @objc dynamic let id: Int
-    @objc dynamic let online: Int
-    @objc dynamic let photo50: String
+    @objc dynamic var firstName: String
+    @objc dynamic var lastName: String
+    @objc dynamic var id: Int
+    @objc dynamic var online: Int
+    @objc dynamic var photo50: String
     
     enum CodingKeys: String, CodingKey {
         case firstName = "first_name"
@@ -24,6 +24,14 @@ class VKUser: Object, Codable {
         case online
         case photo50 = "photo_50"
     }
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+//    override static func ignoredProperties() -> [String] {
+//        return ["photo50", "online"]
+//    }
 }
 
 struct MyFriendsResponse: Codable {
@@ -37,10 +45,7 @@ struct FriendsResponse: Codable {
 
 class FriendsService {
     
-    func loadFriendsData(completion: @escaping ([VKUser]) -> Void) {
-        
-        let realmm = try! Realm()
-        print(realmm.configuration.fileURL!)
+    func loadFriendsData(completion: @escaping () -> Void) {
         
         AF.request("https://api.vk.com/method/friends.get",
                    parameters: [
@@ -53,8 +58,8 @@ class FriendsService {
             do {
                 let users = try JSONDecoder().decode(FriendsResponse.self, from: response.value!)
                 self?.saveFriendsData(users.response.items)
-                completion(users.response.items)
-                print(users)
+                completion()
+//                print(users)
             } catch {
                 print(error)
             }
@@ -62,10 +67,18 @@ class FriendsService {
     }
     
     func saveFriendsData(_ friends: [VKUser]) {
+        
+//        let realm = try! Realm()
+        let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+        let realm = try! Realm(configuration: config)
+        print(realm.configuration.fileURL!)
+        
         do {
-            let realm = try Realm()
+//            let realm = try Realm()
             realm.beginWrite()
-            realm.add(friends)
+            
+            realm.add(friends, update: .modified)
+            
             try realm.commitWrite()
         } catch {
             print(error)
