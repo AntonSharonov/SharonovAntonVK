@@ -11,13 +11,18 @@ import Alamofire
 import RealmSwift
 
 class PhotoSizes: Object, Codable {
-    @objc dynamic let url: String
-    @objc dynamic let type: String
+    @objc dynamic var url: String
+    @objc dynamic var type: String
 }
 
-struct VKPhoto: Codable {
-    let owner_id: Int
-    let sizes: [PhotoSizes]
+class VKPhoto: Object, Codable {
+    @objc dynamic var ownerId: Int
+//    let sizes: [PhotoSizes]
+//
+//    enum CodingKeys: String, CodingKey {
+//        case ownerId = "owner_id"
+//        case sizes
+//    }
 }
 
 struct FriendsPhotosResponse: Codable {
@@ -31,7 +36,7 @@ struct PhotosResponse: Codable {
 
 class PhotosService {
     
-    func loadPhotosData(completion: @escaping ([PhotoSizes]) -> Void) {
+    func loadPhotosData(completion: @escaping () -> Void) {
         
         AF.request("https://api.vk.com/method/photos.getAll",
                    parameters: [
@@ -42,11 +47,31 @@ class PhotosService {
             
             do {
                 let photos = try JSONDecoder().decode(PhotosResponse.self, from: response.value!)
-//                completion(photos.response.items)
-                print(photos)
+                self.savePhotosData(photos.response.items)
+                completion()
+//                print(photos)
             } catch {
                 print(error)
             }
         }
     }
+    
+        func savePhotosData(_ photos: [VKPhoto]) {
+            
+    //        let realm = try! Realm()
+            let config = Realm.Configuration(deleteRealmIfMigrationNeeded: true)
+            let realm = try! Realm(configuration: config)
+//            print(realm.configuration.fileURL!)
+            
+            do {
+    //            let realm = try Realm()
+                realm.beginWrite()
+                
+                realm.add(photos, update: .modified)
+                
+                try realm.commitWrite()
+            } catch {
+                print(error)
+            }
+        }
 }

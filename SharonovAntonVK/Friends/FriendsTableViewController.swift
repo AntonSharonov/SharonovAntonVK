@@ -26,9 +26,10 @@ class FriendsTableViewController: UITableViewController {
         friendsService.loadFriendsData() { [weak self] in
             //            self?.vkFriends = friends
             print("друзья")
-            self?.loadData()
             self?.sortedFriends(friends: self!.vkFriends)
-            self?.tableView?.reloadData()
+            self?.loadData()
+            
+//            self?.tableView?.reloadData()
         }
         //        friendsService.saveFriendsData(vkFriends)
         
@@ -39,7 +40,7 @@ class FriendsTableViewController: UITableViewController {
             let realm = try Realm()
             let friends = realm.objects(VKUser.self)
             self.vkFriends = Array(friends)
-            
+            tableView?.reloadData()
 //            print(vkFriends)
         } catch {
             print(error)

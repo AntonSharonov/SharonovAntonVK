@@ -25,7 +25,7 @@ class MyGroupsTableViewController: UITableViewController {
             print("группы")
             self?.loadData()
 //            self?.sortedFriends(friends: self!.vkFriends)
-            self?.tableView?.reloadData()
+//
         }
         //        friendsService.saveFriendsData(vkFriends)
         
@@ -36,7 +36,7 @@ class MyGroupsTableViewController: UITableViewController {
             let realm = try Realm()
             let groups = realm.objects(VKGroup.self)
             self.vkGroups = Array(groups)
-            
+            tableView?.reloadData()
             //            print(vkFriends)
         } catch {
             print(error)

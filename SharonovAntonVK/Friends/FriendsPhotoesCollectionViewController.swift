@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import RealmSwift
 
 class FriendsPhotoesCollectionViewController: UICollectionViewController {
     
@@ -18,10 +19,29 @@ class FriendsPhotoesCollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        photoService.loadPhotosData() { [weak self] photos in
-            self?.photoSizes = photos
-//            print(photos)
-            self?.collectionView.reloadData()
+            loadData()
+                photoService.loadPhotosData() { [weak self] in
+
+                    print("фото")
+
+                    self?.loadData()
+                    
+
+                }
+
+                
+            }
+            
+
+    func loadData() {
+        do {
+            let realm = try Realm()
+            let photos = realm.objects(VKPhoto.self)
+            self.vkPhoto = Array(photos)
+            collectionView?.reloadData()
+//            print(vkFriends)
+        } catch {
+            print(error)
         }
     }
     
